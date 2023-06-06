@@ -17,64 +17,75 @@ Adoption View of the Kit.
 
 ### Vision
 
-The aim of the Remaining Useful Life KIT is to ....
+Calculating Remaining Useful Life is a business.
+
+The *Remaining Useful Life* Kit aims at novel business models based on the calculation of *Remaining Useful Life*. The wide range of possible applications starts with product development and finally extends to recycling: the entire product life cycle offers potential. The *Remaining Useful Life* Kit provides efficient support in planning, designing, building, using and operating *Remaining Useful Life* Services and applications based on them.
 
 ### Mission
 
-The Remaining Useful Lifeability KIT provides the necessary standards, aspect models, APIs, logics, and processes on how to build ...
+The *Remaining Useful Life* Kit comes with the necessary Catena-X standards for damage models and remaining useful life statements. On this basis, interoperable solutions are created. The KIT includes tools for the simple implementation of component-specific damage models and for linking the damage models with dynamic input data. All components are easily adaptable to specific applications and simplify the journey to the finished service.
 
-All described specifications in the KIT are based on Catena-X standards like ...
 
-Furthermore, ...
-
-In the current version, the KIT supports ...
 
 ### Customer Journey
 
-With the Remaining Useful Life KIT, we support the Catena-X customer journey for our adopters and solutions providers.
+With the *Remaining Useful Life* Kit, we support the Catena-X customer journey for our adopters and solutions providers.
 
 <!--![Customer Journey](assets/rul_customer-journey.png)-->
 
 <!-- !Mandatory! -->
 ## Business Value
 
-Through the standardized specifications described in the Remaining-Useful-Life-KIT” ...
+Through the standardized specifications described in the *Remaining Useful Life* Kit  – for example the semantic models and APIs – application and service providers can reduce investment and implementation costs to integrate new Catena-X services. Furthermore, application, data, model and service providers can enter potential new markets within the entire product life cycle.
 
 <!-- !Mandatory! -->
 ## Use Case
 
-### Status Quo / Today’s challenge
+- OEM, TIER-X: In the early development phase, components can be designed using digital prototypes based on component-specific damage calculation. The load data required for this comes from simulation or measurement in the digital twin.
 
-From Behaviour Twin's perspective, the main challenge within the automotive industry is to define and implement inter-organizational end-to-end data chains and services across the whole automotive supply chain to empower data driven use cases. Details regarding the challenges are:
+- Tier-X: The overall product range becomes more attractive in the offer phase when model-based damage calculation is included as a product-related service.
 
-- Missing standards ...
+- During the usage phase, OEMs, car dealers and automotive clubs can further interpret the *Remaining Useful Life* calculation for a vehicle evaluation and offer it as vehicle-related services for their end customers and fleet operators.
 
-- Current solutions are either costly ...
+- Even during the usage phase, but particularly during the recycling phase, OEMs, Tier-X, automotive clubs, car dealers, insurers, fleet operators and recyclers benefit from precise residual value analyses of the entire vehicle and its components on the basis of component-specific damage calculation.
+
+
+### Status Quo 
+
+Within company limits, the calculation of component damage based on internally available data and models is already state of the art. However, across company boundaries, there are only individual, complex and not generally available options for calculating component-specific damage.
+
+### Today’s challenge
+
+For successful implementation, the following challenges must be addressed:
+
+- the correct allocation of the appropriate damage calculation to the respective component
+- recording and providing the necessary input variables
+- an easy-to-interpret preparation of results
+- easy scalability across company boundaries
 
 ### Benefits
 
-#### OEM and large automotive suppliers
+**OEMs and big suppliers** benefit from cost savings, improved quality and shorter development times through customer-data-based, precise design of individual components and the entire system. The decisive hub is created by using load data and damage models across company boundaries — always in compliance with IP and data protection.
 
-For OEM and large automotive suppliers: ...
+It will be easier for **SMEs** to use product-related *Remaining Useful Life* services, for example for design and recycling.
 
-#### SME
+Generating added value by providing *Remaining Useful Life* services offers new areas of business for **solution providers**. These can be the suppliers themselves, pure service providers or so-called value-added resellers (VAR).
 
-The developed and simple-to-use ...
-
-#### Solution Provider
-
-Solution providers have the potential to scale customer groups and access new market potentials via marketplace and shared service network.
-
+<!--
 ### Example - Industry Problem
 
 The KIT enables business to ...
 
 Through the introduction of unique Catena-X IDs, ...
+-->
+
 
 <!-- Recommended -->
+<!--
 ## Tutorials
 
 The following video gives an overview ...
+-->
 
 <!--video controls style={{width:'100%'}} controlsList="nodownload">
   <source src="/video/rul-video.mp4"/>
@@ -84,8 +95,9 @@ The following video gives an overview ...
 <!-- ## Whitepaper -->
 
 <!-- Recommended -->
-
+<!--
 ## Semantic Models
+-->
 
 <!-- !Mandatory! -->
 ## Standards

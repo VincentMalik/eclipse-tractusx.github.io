@@ -102,10 +102,37 @@ The following video gives an overview ...
 <!-- !Mandatory! -->
 ## Standards
 
-Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
+Our relevant standards can **not yet** be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library) **as they don't have been published yet**.
+
+Here is a preview of our **standard candidates**: <!-- Link to be provided-->
+- CX - 0059 Triangle Behavioral Twin Endurance:
+
+  _This triangle document acts as a bracket for single standards required to request "Remaining Useful Life
+(RUL)" data as well as providing a service for its calculation at a component level. Included are APIs to be
+provided by the service provider and the service requestor, as well as aspect models for the respective
+payloads being exchanged in an asynchronous pattern leveraging those APIs._
+
+- CX - 0088 Aspect Model User Estimated Loading: 
+
+  _This document describes the semantic model "User Estimated Loading" used in the
+Catena-X network._
+
+- CX - 0089 Triangle BehaviourTwin EnduranceEstimator:
+
+  _This triangle document acts as a bracket for single standards required to request "Remaining Useful Life
+(RUL)" data as well as providing a service for its estimation. Included are APIs to be provided by the service
+provider and the service requestor, as well as aspect models for the respective payloads being exchanged in
+an asynchronous pattern leveraging those APIs._
+
+- CX - 0090 API EnduranceEstimator :
+
+  _This documentation describes the technical specification to enable the request of standardized "Remaining
+Useful Life (RUL)" data for "User Estimated Loading" and its integration into the Eclipse Dataspace connector
+(EDC). It covers exclusively the illustration of the specific API endpoints. The minimal process an application
+needs in order to support such interaction will not be handled here._
+
 
 <!-- FROM TRACEABILITY:
-
 
 - [CX - 0019 Aspect Model: Serial Part Typization](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0019_SerialPartTypization_UseCaseTraceability_v_1.0.1.pdf)
 - [CX - 0020 Aspect Model:Assembly Part Relationship](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0020_AssemblyPartRelationship_UseCaseTraceability_v_1.0.1.pdf)

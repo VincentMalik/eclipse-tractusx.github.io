@@ -12,7 +12,6 @@ sidebar_position: 2
 Adoption View of the Kit.
 -->
 
-<!-- !Mandatory! -->
 ## Vision & Mission
 
 ### Vision
@@ -33,12 +32,10 @@ With the *Remaining Useful Life* Kit, we support the Catena-X customer journey f
 
 <!--![Customer Journey](assets/rul_customer-journey.png)-->
 
-<!-- !Mandatory! -->
 ## Business Value
 
 Through the standardized specifications described in the *Remaining Useful Life* Kit  – for example the semantic models and APIs – application and service providers can reduce investment and implementation costs to integrate new Catena-X services. Furthermore, application, data, model and service providers can enter potential new markets within the entire product life cycle.
 
-<!-- !Mandatory! -->
 ## Use Case
 
 - OEM, TIER-X: In the early development phase, components can be designed using digital prototypes based on component-specific damage calculation. The load data required for this comes from simulation or measurement in the digital twin.
@@ -71,72 +68,80 @@ It will be easier for **SMEs** to use product-related *Remaining Useful Life* se
 
 Generating added value by providing *Remaining Useful Life* services offers new areas of business for **solution providers**. These can be the suppliers themselves, pure service providers or so-called value-added resellers (VAR).
 
-<!--
-### Example - Industry Problem
+## Logic & Schema
 
-The KIT enables business to ...
+### Building Block View
+The architecture image describes the interaction between the RuL Service and the Knowledge Agent components.
 
-Through the introduction of unique Catena-X IDs, ...
--->
+![Building Block Architecture Overview](images\RKIT_Building_Block_Architecture_Overview_V1.png)
 
+The Consumer A is only allowed to communicate via the Data Provider B.
+The indirect communication ensures data sovereignty for Data Provider B (as B might not want to advertise its providers). Thus, the communication of the RuL result ist to Data Provider B and is not allowed to deliver the result directly to A.
 
-<!-- Recommended -->
-<!--
-## Tutorials
+### RuL Components
+|Subsystem|Description|
+|---------|-----------|
+|Data Consuming App| This component is the app that is hosted at the Consumer and provides the end user interface. The end user can enter a vehicle identifier number (VIN) and gets back a calculated RuL value. <BR> The returned value from the calculation services is SAMM specified. The app can provide another representation.|
+|Loading Data	| A data source at the Data Provider that provides the loading data and other vehicle data that are needed for the RuL calculation. <BR> It can be accessed by the knowledge agent via data bindings.|
+|RuL Service| A RuL calculation service at the Service Provider. It accepts input data from the Data Provider, calculates the RuL value and returns it.|
 
-The following video gives an overview ...
--->
+### Knowledge Agent components
+|Subsystem|Description|
+|---------|-----------|
+|Matchmaking Agent|This component supports SparQL to traverse the federated data space as a large data structure. It interacts with the EDC. <UL><LI>The provider's Matchmaking Agent will be activated by its EDC. Therefore, the EDC must offer a Graph Asset (variant of ordinary data assets in the Catena-X EDC standard).</LI><LI> The consumer's Matchmaking Agent interacts with its EDC to negotiate and perform the transfer of Sub-Skills to other dataspace participants.</LI></UL> The Matchmaking Agents are matching the (sub)graphs and negotiate appropriated graph assets with the partner EDCs.|
+|Binding Agent|	The Binding Agent is a restricted version of the Matchmaking Agent (subset of OWL/SparQL, e.g., without federation) which is just focused on translating Sub-Skills of a particular business domain (Bill-Of-Material, Chemical Materials, Production Sites, etc.)  into proper SQL- or REST based backend system calls. <BR> Implementation details: For data bindings, OnTop is used. For service bindings, RDF4J is used.|
+|Ontology|The ontology is a formal representation of knowledge that captures concepts, relationships, and properties. It allows a shared understanding and reasoning about the respective domain. <BR> It must be hosted in a way that all participants can access it. Currently, the ontology is hosted at GitHub.|
+|Skill/Sub-Skill|	The Skill describes, what to do (which data have to be connected, transferred and so on).|
 
-<!--video controls style={{width:'100%'}} controlsList="nodownload">
-  <source src="/video/rul-video.mp4"/>
-</video-->
+### Catena-X Core Services (except Knowledge Agent components)
+|Subsystem|Description|
+|---------|-----------|
+|Eclipse Dataspace Components (EDC)|The Connector of the Eclipse Dataspace Components provides a framework for sovereign, inter-organizational data exchange. It implements the International Data Spaces standard (IDS) as well as relevant protocols associated with GAIA-X. The connector is designed in an extensible way in order to support alternative protocols and integrate in various ecosystems.|
 
-<!-- Optional -->
-<!-- ## Whitepaper -->
-
-<!-- Recommended -->
-<!--
-## Semantic Models
--->
 
 <!-- !Mandatory! -->
-## Standards
+## Semantic Models & Standards
 
-Our relevant standards can **not yet** be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library) **as they don't have been published yet**.
+Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library). 
 
-Here is a preview of our **standard candidates**: <!-- Link to be provided-->
-- CX - 0059 Triangle Behavioral Twin Endurance:
+
+- [CX - 0056 Semantic Model: ClassifiedLoadSpectrum](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0056-SemanticModelClassifiedLoadSpectrum.pdf):
+
+  _The data model “ClassifiedLoadSpectrum” represents the load data of a vehicle component. The load spectrum is a data set that represents the aggregated loading of a component. Any kind of loading is covered: loading can be force or torque or revolutions or temperature or event or similar. The load data is classified and counted with specific counting methods. This standard defines the format for the counted load data, so that the exchange of load data between different partners is possible._
+
+
+- [CX - 0057 Semantic Model: RemainingUsefulLife:](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0057-SemanticModelRemainingUsefulLife.pdf)
+
+  _The data model Remaining Useful Life contains the two relevant values to describe the expected remaining life of a vehicle, remaining running distance and remaining operating hours. The data model is used for vehicle parts and vehicle components which cannot be visually assessed but need the loading information combined with a damage model to estimate the health of the component._
+
+
+- [CX - 0058 API: Endurance Predictor:](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0058-APIEndurancePredictor.pdf)
+
+  _This documentation describes the technical specification to enable the request of standardized "Remaining Useful Life (RUL)"
+data at component level of a concrete vehicle instance ("as built") and its integration into the Eclipse Dataspace connector (EDC). It sets the standards for the API for the usage of services which calculate a so-called "remaining useful life value" (RUL-value, see CX-0057). This standard covers exclusively the definition of the specific API endpoint._
+
+
+- [CX - 0059 Triangle Behavioral Twin Endurance Predictor:](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0059-TriangleBehavioralTwinEndurancePredictorService-v.1.0.0.pdf)
 
   _This triangle document acts as a bracket for single standards required to request "Remaining Useful Life
 (RUL)" data as well as providing a service for its calculation at a component level. Included are APIs to be
 provided by the service provider and the service requestor, as well as aspect models for the respective
 payloads being exchanged in an asynchronous pattern leveraging those APIs._
 
+<!-- Standard candidates -->
+
+Some of our relevant standards can **not yet** be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library) **as they don't have been published yet**. Here is a preview of our **standard candidates**: <!-- Link to be provided-->
+
 - CX - 0088 Aspect Model User Estimated Loading: 
 
-  _This document describes the semantic model "User Estimated Loading" used in the
-Catena-X network._
+  _The semantic model for "User Estimated Loading" is the structured the input for the Endurance Estimator Service. It is basic data about the vehicle and information about the usage, previous usage as well as future usage._
 
 - CX - 0089 Triangle BehaviourTwin EnduranceEstimator:
 
-  _This triangle document acts as a bracket for single standards required to request "Remaining Useful Life
-(RUL)" data as well as providing a service for its estimation. Included are APIs to be provided by the service
-provider and the service requestor, as well as aspect models for the respective payloads being exchanged in
-an asynchronous pattern leveraging those APIs._
+  _This triangle document acts as a bracket for single standards  required to request "Remaining Useful Life (RUL)" data as well as providing a service for its estimation. Included are APIs to be provided by the service provider and the service requestor, as well as aspect models for the respective payloads being exchanged in an asynchronous pattern leveraging those APIs._
 
 - CX - 0090 API EnduranceEstimator :
 
-  _This documentation describes the technical specification to enable the request of standardized "Remaining
-Useful Life (RUL)" data for "User Estimated Loading" and its integration into the Eclipse Dataspace connector
-(EDC). It covers exclusively the illustration of the specific API endpoints. The minimal process an application
-needs in order to support such interaction will not be handled here._
+  _This documentation describes the technical specification to enable the request of standardized "Remaining Useful Life (RUL)" data for "User Estimated Loading" and its integration into the Eclipse Dataspace connector (EDC). It sets the standards for the API for the usage of services which estimates a so-called "remaining useful life value" (RUL-value, see CX-0057) using estimated load data (UserEstimatedLoading, see CX-0088). This standard covers exclusively the illustration of the specific API endpoints._
 
 
-<!-- FROM TRACEABILITY:
-
-- [CX - 0019 Aspect Model: Serial Part Typization](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0019_SerialPartTypization_UseCaseTraceability_v_1.0.1.pdf)
-- [CX - 0020 Aspect Model:Assembly Part Relationship](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0020_AssemblyPartRelationship_UseCaseTraceability_v_1.0.1.pdf)
-- [CX - 0021 Aspect Model: Batch](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0021__Batch_UseCaseTraceability_v_1.0.1.pdf)
-- [CX - 0022 Notification Process](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0022_Notification_Process_v_1.1.1.pdf)
-- [CX - 0023 Notification API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0023_Notification_API_v_1.1.1.pdf)
--->

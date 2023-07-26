@@ -99,6 +99,18 @@ The indirect communication ensures data sovereignty for Data Provider B (as B mi
 |Eclipse Dataspace Components (EDC)|The Connector of the Eclipse Dataspace Components provides a framework for sovereign, inter-organizational data exchange. It implements the International Data Spaces standard (IDS) as well as relevant protocols associated with GAIA-X. The connector is designed in an extensible way in order to support alternative protocols and integrate in various ecosystems.|
 
 
+
+## Business Process
+To enable data sovereignty, access and usage policies are important to protect the data assets of a data provider in the EDC, described in the following.
+
+### Access Policies
+To decide which company has access to the data assets, access policy should be used. It is maybe possible to skip access policies, but this will made all data assets public available in the Catena-X network and is not recommended. Therefore, every asset should be protected and only be made available for specific companies, identified through their business partner number (BPN). In the near future, other access policies will be introduced like a company role and attribute based policy. Further details can be found in this page of the [EDC](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/edc-extensions/business-partner-validation).
+
+### Usage policies
+Use case specific credentials exist and will be mandatory. Their documentation will be available after SSI release.
+
+
+
 <!-- !Mandatory! -->
 ## Semantic Models & Standards
 

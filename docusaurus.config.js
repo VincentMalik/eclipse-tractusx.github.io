@@ -328,6 +328,10 @@ const config = {
                  to: '/docs-kits/next/category/digital-twin-kit',
                  label: 'Digital Twin',
               },
+              {
+                to: '/docs-kits/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit',
+                label: 'Digital Twin',
+              },
             ],
           },
           {

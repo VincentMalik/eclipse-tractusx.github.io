@@ -73,7 +73,7 @@ Generating added value by providing *Remaining Useful Life* services offers new 
 ### Building Block View
 The architecture image describes the interaction between the RuL Service and the Knowledge Agent components.
 
-![Building Block Architecture Overview](images/RKIT_Building_Block_Architecture_Overview_V1.png)
+![Building Block Architecture Overview](assets/RKIT_Building_Block_Architecture_Overview_V1.png)
 
 The Consumer A is only allowed to communicate via the Data Provider B.
 The indirect communication ensures data sovereignty for Data Provider B (as B might not want to advertise its providers). Thus, the communication of the RuL result ist to Data Provider B and is not allowed to deliver the result directly to A.

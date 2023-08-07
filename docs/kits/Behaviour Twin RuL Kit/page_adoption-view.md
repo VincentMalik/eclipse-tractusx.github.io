@@ -81,16 +81,16 @@ The indirect communication ensures data sovereignty for Data Provider B (as B mi
 ### RuL Components
 |Subsystem|Description|
 |---------|-----------|
-|Data Consuming App| This component is the app that is hosted at the Consumer and provides the end user interface. The end user can enter a vehicle identifier number (VIN) and gets back a calculated RuL value. <BR> The returned value from the calculation services is SAMM specified. The app can provide another representation.|
-|Loading Data	| A data source at the Data Provider that provides the loading data and other vehicle data that are needed for the RuL calculation. <BR> It can be accessed by the knowledge agent via data bindings.|
+|Data Consuming App| This component is the app that is hosted at the Consumer and provides the end user interface. The end user can enter a vehicle identifier number (VIN) and gets back a calculated RuL value. <BR/> The returned value from the calculation services is SAMM specified. The app can provide another representation.|
+|Loading Data	| A data source at the Data Provider that provides the loading data and other vehicle data that are needed for the RuL calculation. <BR/ > It can be accessed by the knowledge agent via data bindings.|
 |RuL Service| A RuL calculation service at the Service Provider. It accepts input data from the Data Provider, calculates the RuL value and returns it.|
 
 ### Knowledge Agent components
 |Subsystem|Description|
 |---------|-----------|
 |Matchmaking Agent|This component supports SparQL to traverse the federated data space as a large data structure. It interacts with the EDC. <UL><LI>The provider's Matchmaking Agent will be activated by its EDC. Therefore, the EDC must offer a Graph Asset (variant of ordinary data assets in the Catena-X EDC standard).</LI><LI> The consumer's Matchmaking Agent interacts with its EDC to negotiate and perform the transfer of Sub-Skills to other dataspace participants.</LI></UL> The Matchmaking Agents are matching the (sub)graphs and negotiate appropriated graph assets with the partner EDCs.|
-|Binding Agent|	The Binding Agent is a restricted version of the Matchmaking Agent (subset of OWL/SparQL, e.g., without federation) which is just focused on translating Sub-Skills of a particular business domain (Bill-Of-Material, Chemical Materials, Production Sites, etc.)  into proper SQL- or REST based backend system calls. <BR> Implementation details: For data bindings, OnTop is used. For service bindings, RDF4J is used.|
-|Ontology|The ontology is a formal representation of knowledge that captures concepts, relationships, and properties. It allows a shared understanding and reasoning about the respective domain. <BR> It must be hosted in a way that all participants can access it. Currently, the ontology is hosted at GitHub.|
+|Binding Agent|	The Binding Agent is a restricted version of the Matchmaking Agent (subset of OWL/SparQL, e.g., without federation) which is just focused on translating Sub-Skills of a particular business domain (Bill-Of-Material, Chemical Materials, Production Sites, etc.)  into proper SQL- or REST based backend system calls. <BR/> Implementation details: For data bindings, OnTop is used. For service bindings, RDF4J is used.|
+|Ontology|The ontology is a formal representation of knowledge that captures concepts, relationships, and properties. It allows a shared understanding and reasoning about the respective domain. <BR/> It must be hosted in a way that all participants can access it. Currently, the ontology is hosted at GitHub.|
 |Skill/Sub-Skill|	The Skill describes, what to do (which data have to be connected, transferred and so on).|
 
 ### Catena-X Core Services (except Knowledge Agent components)

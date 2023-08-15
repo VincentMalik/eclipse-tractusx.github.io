@@ -7,18 +7,49 @@ sidebar_position: 4
 
 ![Remaining Useful Life kit banner](@site/static/img/doc-rul_header-minified.png)
 
-### Remaining Useful Life Kit
 
-## Overview
-As a developer in the Remaining Useful Life use case, you may be part of one or more of the following three roles:
- - RuL calculation service provider (likely a supplier of a part or component)
- - supplier of a component (likely a supplier of a commponent that is assembled of subcomponents which provide RuL calculation services)
- - RuL data provider (provider of usage data, likely a OEM)
+<span style="font-size:3em;">&#x26a0;&#xfe0f;</span> **This is only a preview KIT.**  
+There will be changes in the following releases.
+We plan to provide a more general RuL skill and more generalized interfaces for service
+input data. With these improvements, it will be much more easy and flexible for you to
+participate in the RuL use case.
+
+
+# Overview
+## Roles
+As a developer in the Remaining Useful Life use case, you may apply to one or more
+of the following roles:
  - RuL consumer (RuL result requester)
- - skill provider
+ - skill provider (provider of the use case logic)
+ - RuL data provider (provider of usage data, likely a OEM)
+ - delegator (likely a supplier of a component that is assembled of subcomponents
+   which are providing RuL calculation services)
+ - RuL calculation service provider (likely a supplier of a part or component)
 
-### Mandatory components and standards
- (applies to RuL calculation service provider, RuL data provider)
+## Logic
+The central logic of the RuL use case is a **RuL skill**.  
+You can use a predefined RuL skill and use it or modify it to build up a similar use
+case. It is written in SPARQL, a query language for federated knowledge graphs.  
+The current RuL skill takes vehicle identifier numbers (VINs) as parameters.  
+In general, a RuL skill will take one or more vehicle/component IDs as parameters.
+It then collects the related usage data at the RuL data providers and calls the RuL
+calculation services at the RuL service providers. The result is then collected and
+transferred to the consumer.  
+
+## Your interface
+You always need access to your **running EDC with knowledge agent components** and
+the (extensible) **ontologies of Catena-X**. In most cases, you can use them as they are.  
+
+Your interface to the use case depends on your role(s):  
+If you are only a consumer, you are fine with the previous mentioned components.  
+If you are a data provider or delegator, you may have your data organized in relational databases. In this case, you need to have a running **provisioning
+agent** with **configured data bindings** (linking your data to the knowledge graph).  
+If you are a service provider, you need to have a running **remoting agent** with
+**configured service bindings** (linking your service to the knowledge graph).  
+
+For more information, see the operation view.
+
+## Mandatory components and standards
  - ontologies (semantic models)
  - usage data
  - calculation services
@@ -30,15 +61,22 @@ As a developer in the Remaining Useful Life use case, you may be part of one or 
    - remoting agent: bind service to graph
 
 | | calculation service provider | supplier of a component | RuL data provider | RuL consumer | skill provider |
-| ----------------------- | :---: | :---: | :---: | :---: | :---: |
-| EDC + knowledge agent + matchmaking agent  | x | x | x | x | x |
-| ontologies              | x | x | x | x | x |
-| skill-access            |  |  |  | x | x |
-| delegation data         |  | x | x | x |  |
-| usage data              |  |  | x |  |  |
-| provisioning agent      |  |  | x |  |  |
-| calculation service     | x |  |  |  |  |
-| remoting agent          | x |  |  |  |  |
+| --------------------- | :---: | :---: | :---: | :---: | :---: |
+| EDC + knowledge agent <br/>+ matchmaking agent | x | x | x | x | x |
+| ontologies                                | x | x | x | x | x |
+| skill-access                              |   |   |   | x | x |
+| delegation data                           |   | x | x | x |   |
+| usage data                                |   |   | x |   |   |
+| provisioning agent                        |   |   | x |   |   |
+| calculation service                       | x |   |   |   |   |
+| remoting agent                            | x |   |   |   |   |
+
+
+
+## Basic Architecture
+ (applies to RuL calculation service provider, RuL data provider)
+
+
 
 
 ### What you have to provide as a RuL calculation service provider
@@ -47,11 +85,11 @@ With a
 ### What you have to provide as a data provider
 As the name says, a data provider must provide data. 
 Delegation, Sub-Skill filling.
-As the initiator of the RuL caluclation does not know all the related components and their manufacturers, the data provider has to make the connection to the next level.
+As the initiator of the RuL calculation does not know all the related components and their manufacturers, the data provider has to make the connection to the next level.
 
 ### What you have to do as a initiator of RuL calculations
 If not provided by others, you have to develop a skill that .
-In the future, this KIT will provide a generalized RuL skill that can be used as is (or adapted if neccessary). 
+In the future, this KIT will provide a generalized RuL skill that can be used as is (or adapted if necessary). 
 
 
 

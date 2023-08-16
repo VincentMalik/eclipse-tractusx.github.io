@@ -103,14 +103,22 @@ The indirect communication ensures data sovereignty for Data Provider B (as B mi
 ## Business Process
 Two different cases need to be specified.
 
-Service Consumer does not have input data for RuL Service available; RuL calculation based on vin.
+### Service Consumer does not have input data for RuL Service available; RuL calculation based on vin.
 ![Business Process 3 Partners](assets/RKIT_business_process_1.png)
 - Service Consumer provides Vin to OEM
--OEM procures vin specific service inputs from vehicle
--OEM forwards input to service providers
--Service providers calculate RuL values
--RuL results are provided to the Service consumer via the OEM
 
+- OEM procures vin specific service inputs from vehicle
+
+- OEM forwards input to service providers
+
+- Service providers calculate RuL values
+
+- RuL results are provided to the Service consumer via the OEM
+
+### Service Consumer has input data for RuL Service available:
+![Business Process 3 Partners](assets/RKIT_business_process_2.png)
+- Service consumer needs to collect or generate load/input for RuL calculation, e.g. through driver questionnaire.
+- Service provider uses the input to estimate RuL and send it back to Service Consumer
 
 ### Access Policies
 To decide which company has access to the data assets, access policy should be used. It is maybe possible to skip access policies, but this will made all data assets public available in the Catena-X network and is not recommended. Therefore, every asset should be protected and only be made available for specific companies, identified through their business partner number (BPN). In the near future, other access policies will be introduced like a company role and attribute based policy. Further details can be found in this page of the [EDC](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/edc-extensions/business-partner-validation).

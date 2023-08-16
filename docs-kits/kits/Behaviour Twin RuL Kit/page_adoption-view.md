@@ -125,8 +125,8 @@ To decide which company has access to the data assets, access policy should be u
 
 ### Usage policies
 Use case specific credentials exist and will be mandatory. Their documentation will be available after SSI release.
-
-
+A Behaviour Twin  "Use Case Rahmenbedingung" which covers the business process of the app will be available after SSI release.
+This Rahmenbedingung document can be referenced in the usage policies, and therefore limit Data & Service access to Behaviour Twin participants.
 
 <!-- !Mandatory! -->
 ## Semantic Models & Standards

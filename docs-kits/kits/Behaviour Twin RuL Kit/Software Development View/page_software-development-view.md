@@ -294,7 +294,7 @@ SELECT DISTINCT ?vehicle ?van ?aggregate ?assembly ?supplier ?distanceKm ?timeHo
 ```  
 The above skill 
 
-## RuL Skill deployment
+## RuL Skill deployment (TODO: move to operations view!!!)
 After the skill is defined, it has to be registered.
 As described in th "KA-KIT", one have to define the Asset, Policy and Contractdefiniton as for other EDC assets.
 
@@ -418,8 +418,25 @@ The RuL results for the given VAN's is provided are provided as bindings for the
 }
 ```
 
- - Skill hosting/How to deploy (operations view)
- - How to bind to own application (example/explanation: how to call, how to receive results)
+If the given VAN is not found on OEM side, then we get an empty binding result:
+```json
+{
+    "head": {
+        "vars": [
+            "vehicle",
+            "van",
+            "aggregate",
+            "assembly",
+            "supplier",
+            "distanceKm",
+            "timeHours"
+        ]
+    },
+    "results": {
+        "bindings": []
+    }
+}
+```
 
 # Data bindings
  - Example (generalized, derivied from OEM)

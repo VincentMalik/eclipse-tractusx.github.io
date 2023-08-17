@@ -292,6 +292,7 @@ SELECT DISTINCT ?vehicle ?van ?aggregate ?assembly ?supplier ?distanceKm ?timeHo
 
 } # SELECT
 ```  
+The above skill 
 
 ## RuL Skill deployment
 After the skill is defined, it has to be registered.
@@ -300,20 +301,48 @@ As described in th "KA-KIT", one have to define the Asset, Policy and Contractde
 To bo able to invoke the sample Agent-Skill defined above, we have to deploy, or better said, to register it in our agent enabled EDC. For the registration we need, as for other EDC assets, the asset, a policy and a contract definition registration.
 
 **Policy Registration**
-``` curl 
-
+``` json
+{
+    "@context": {
+        "odrl": "http://www.w3.org/ns/odrl/2/",
+        "cx-common": "https://w3id.org/catenax/ontology/common#"
+    },
+    "@type": "PolicyDefinitionRequestDto",
+    "@id": "Policy?consumer=Asset&mode=open",
+    "policy": {
+		"@type": "Policy",
+		"odrl:permission" : [{
+			"odrl:action" : "USE",
+			"odrl:constraint" : []
+		}]
+    }
+} 
 ```
 
 **Contractdefiniton Registration**
-``` curl
+``` json
+{
+    "@context": {
+         "cx-common": "https://w3id.org/catenax/ontology/common#"
+    },
+    "@id": "Contract?consumer=Asset&mode=open",
+    "@type": "ContractDefinition",
+    "accessPolicyId": "Policy?consumer=Asset&mode=open",
+    "contractPolicyId": "Policy?consumer=Asset&mode=open",
+    "assetsSelector" : {
+        "@type" : "CriterionDto",
+        "operandLeft": "https://w3id.org/catenax/ontology/common#publishedUnderContract",
+        "operator": "=",
+        "operandRight": "Contract?consumer=Asset&mode=open"
+    }
+}
 ```
 
 **Skill Registration**
 
 A Skill can be registered over the AgentPlane API:
-
 ```
-curl --location 'agentPlaneEdcUrl/api/agent/skill?asset=SkillAsset%3Fconsumer%3DRemainingUsefulLife&distributionMode=PROVIDER' \
+curl --location 'agentPlaneEdcUrl/api/agent/skill?asset=SkillAsset%3Fconsumer%3DRemainingUsefulLife&distributionMode=PROVIDER%26contract%3DContract%3Fconsumer%3DAsset%26mode%3Dopen' \
 --header 'Content-Type: application/sparql-query' \
 --data-raw '
    skill from above
@@ -321,6 +350,74 @@ curl --location 'agentPlaneEdcUrl/api/agent/skill?asset=SkillAsset%3Fconsumer%3D
 ```
 
 ## Skill usage
+The registered skill is available over Agent Plane API and can be called also for a list of input variables:
+
+```curl 
+curl --location 'agentPlaneEdcUrl/api/agent?asset=SkillAsset%3Fconsumer%3DRemainingUsefulLife' \
+--header 'Content-Type: application/sparql-results+json' \
+--data '{
+    "head": { "vars": [ "van" ]},
+    "results": { "bindings": [
+            {   "van": { "type": "literal", "value": "FNLQNRVCOFLHAQ"}}
+        ]
+    }
+}'
+```
+
+The RuL results for the given VAN's is provided are provided as bindings for the requested variables in the Skill itself and looks like:
+
+```json
+{
+   "head": {
+      "vars": [
+         "vehicle",
+         "van",
+         "aggregate",
+         "assembly",
+         "supplier",
+         "distanceKm",
+         "timeHours"
+      ]
+   },
+   "results": {
+      "bindings": [
+         {
+            "vehicle": {
+               "type": "uri",
+               "value": "urn:uuid:4cf8b668-0f27-4f39-b986-36423d81d222"
+            },
+            "van": {
+               "type": "literal",
+               "value": "FNLQNRVCOFLHAQ"
+            },
+            "aggregate": {
+               "type": "literal",
+               "value": "Some vehicle name"
+            },
+            "assembly": {
+               "type": "",
+               "value": "urn:uuid:4cf8b668-0f27-4f39-b986-36423d81d111"
+            },
+            "supplier": {
+               "type": "uri",
+               "value": "bpn:legal:BPNL00000002HCQ9"
+            },
+            "distanceKm": {
+               "type": "",
+               "datatype": "http://w3.org/2001/XMLSchema#int",
+               "value": "123000"
+            },
+            "timeHours": {
+               "type": "",
+               "datatype": "http://w3.org/2001/XMLSchema#float",
+               "value": "12345.0"
+            }
+         }
+      ]
+   }
+}
+```
+
  - Skill hosting/How to deploy (operations view)
  - How to bind to own application (example/explanation: how to call, how to receive results)
 

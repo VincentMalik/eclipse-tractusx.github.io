@@ -154,6 +154,7 @@ To bo able to invoke the sample Agent-Skill defined above, we have to deploy, or
 ```
 
 **Skill Registration**  
+
 A Skill can be registered over the AgentPlane API:
 ```
 curl --location 'agentPlaneEdcUrl/api/agent/skill?asset=SkillAsset%3Fconsumer%3DRemainingUsefulLife&distributionMode=PROVIDER%26contract%3DContract%3Fconsumer%3DAsset%26mode%3Dopen' \

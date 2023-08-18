@@ -87,7 +87,7 @@ Object types and relations are formally defined within ontologies.
 For a detailled view of the architecture with the konwledge agent see the Knowledge Agent KIT.
 Here you can see an overview over the used components and elements that must be developed:
 
-![Remaining Useful Life architecture overview](rul_architecture_overview.png)
+![Remaining Useful Life architecture overview](../assets/rul_architecture_overview.png)
 
 ## Ontology
 For the Behaviour Twin (BT) RuL User Case, beside the [core](https://github.com/catenax-ng/product-ontology/blob/main/ontology/core_ontology.ttl) and [common](https://github.com/catenax-ng/product-ontology/blob/main/ontology/common_ontology.ttl) ontologies, a specific ontology was defined. For our use cases following sub-ontologies are needed:

@@ -109,7 +109,7 @@ Such a Graph Asset for a service provider can look like following example:
   }
 ```
 
-## RuL Skill deployment
+# Deployment of RuL Skill
 After the skill is defined, it has to be registered.
 As described in th "KA-KIT", one have to define the Asset, Policy and Contractdefiniton as for other EDC assets.
 

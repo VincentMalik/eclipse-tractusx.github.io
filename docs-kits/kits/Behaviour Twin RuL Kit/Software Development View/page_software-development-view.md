@@ -276,62 +276,6 @@ SELECT DISTINCT ?vehicle ?van ?aggregate ?assembly ?supplier ?distanceKm ?timeHo
   } # OEM#CATALOG
 
 } # SELECT
-```  
-The above skill 
-
-## RuL Skill deployment (TODO: move to operations view!!!)
-After the skill is defined, it has to be registered.
-As described in th "KA-KIT", one have to define the Asset, Policy and Contractdefiniton as for other EDC assets.
-
-To bo able to invoke the sample Agent-Skill defined above, we have to deploy, or better said, to register it in our agent enabled EDC. For the registration we need, as for other EDC assets, the asset, a policy and a contract definition registration.
-
-**Policy Registration**
-``` json
-{
-    "@context": {
-        "odrl": "http://www.w3.org/ns/odrl/2/",
-        "cx-common": "https://w3id.org/catenax/ontology/common#"
-    },
-    "@type": "PolicyDefinitionRequestDto",
-    "@id": "Policy?consumer=Asset&mode=open",
-    "policy": {
-		"@type": "Policy",
-		"odrl:permission" : [{
-			"odrl:action" : "USE",
-			"odrl:constraint" : []
-		}]
-    }
-} 
-```
-
-**Contractdefiniton Registration**
-``` json
-{
-    "@context": {
-         "cx-common": "https://w3id.org/catenax/ontology/common#"
-    },
-    "@id": "Contract?consumer=Asset&mode=open",
-    "@type": "ContractDefinition",
-    "accessPolicyId": "Policy?consumer=Asset&mode=open",
-    "contractPolicyId": "Policy?consumer=Asset&mode=open",
-    "assetsSelector" : {
-        "@type" : "CriterionDto",
-        "operandLeft": "https://w3id.org/catenax/ontology/common#publishedUnderContract",
-        "operator": "=",
-        "operandRight": "Contract?consumer=Asset&mode=open"
-    }
-}
-```
-
-**Skill Registration**
-
-A Skill can be registered over the AgentPlane API:
-```
-curl --location 'agentPlaneEdcUrl/api/agent/skill?asset=SkillAsset%3Fconsumer%3DRemainingUsefulLife&distributionMode=PROVIDER%26contract%3DContract%3Fconsumer%3DAsset%26mode%3Dopen' \
---header 'Content-Type: application/sparql-query' \
---data-raw '
-   skill from above
-'
 ```
 
 ## Skill usage

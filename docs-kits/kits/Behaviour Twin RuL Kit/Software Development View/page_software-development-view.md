@@ -10,10 +10,7 @@ sidebar_position: 4
 <!--
 Development View of the Kit.
 -->
-
-<!--
-<span style="font-size:3em;">&#x26a0;&#xfe0f;</span> 
--->
+### Remaining Useful Life Kit
 
 **This is only a preview KIT.** 
 

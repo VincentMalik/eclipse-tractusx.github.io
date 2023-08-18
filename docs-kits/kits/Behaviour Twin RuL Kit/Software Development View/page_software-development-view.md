@@ -11,7 +11,12 @@ sidebar_position: 4
 Development View of the Kit.
 -->
 
-<span style="font-size:3em;">&#x26a0;&#xfe0f;</span> **This is only a preview KIT.**  
+<!--
+<span style="font-size:3em;">&#x26a0;&#xfe0f;</span> 
+-->
+
+**This is only a preview KIT.** 
+
 There will be changes in the following releases.
 We plan to provide a more general RuL skill and more generalized interfaces for service
 input data. With these improvements, it will be much much easier and more flexible for you to

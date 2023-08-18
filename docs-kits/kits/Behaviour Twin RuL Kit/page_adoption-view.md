@@ -76,13 +76,13 @@ The architecture image describes the interaction between the RuL Service and the
 ![Building Block Architecture Overview](assets/RKIT_Building_Block_Architecture_Overview_V1.png)
 
 The Consumer A is only allowed to communicate via the Data Provider B.
-The indirect communication ensures data sovereignty for Data Provider B (as B might not want to advertise its providers). Thus, the communication of the RuL result ist to Data Provider B and is not allowed to deliver the result directly to A.
+The indirect communication ensures data sovereignty for Data Provider B (as B might not want to advertise its providers). Thus, the communication of the RuL result is to Data Provider B and is not allowed to deliver the result directly to A.
 
 ### RuL Components
 |Subsystem|Description|
 |---------|-----------|
 |Data Consuming App| This component is the app that is hosted at the Consumer and provides the end user interface. The end user can enter a vehicle identifier number (VIN) and gets back a calculated RuL value. <BR/> The returned value from the calculation services is SAMM specified. The app can provide another representation.|
-|Loading Data	| A data source at the Data Provider that provides the loading data and other vehicle data that are needed for the RuL calculation. <BR/ > It can be accessed by the knowledge agent via data bindings.|
+|Loading Data	| A data source at the Data Provider that provides the loading data and other vehicle data that are needed for the RuL calculation. <BR/> It can be accessed by the knowledge agent via data bindings.|
 |RuL Service| A RuL calculation service at the Service Provider. It accepts input data from the Data Provider, calculates the RuL value and returns it.|
 
 ### Knowledge Agent components

@@ -107,7 +107,7 @@ For the Behaviour Twin (BT) RuL User Case, beside the [core](https://github.com/
 - [vehicle ontology](https://github.com/catenax-ng/product-ontology/blob/main/ontology/vehicle_ontology.ttl) and
 - [behaviour ontology](https://github.com/catenax-ng/product-ontology/blob/main/ontology/reliability_ontology.ttl)
 
-All needed ontologies for the RuL use case are bundled in one named on our [Behaviour Twin Kit]()https://github.com/catenax-ng/product-ontology/blob/main/ontology_use_case/behaviour_twin_use_case_ontology.ttl.
+All needed ontologies for the RuL use case are bundled in one named on our [Behaviour Twin Kit](https://github.com/catenax-ng/product-ontology/blob/main/ontology_use_case/behaviour_twin_use_case_ontology.ttl).
 
 General information about Knowledge-Agent Semantic Models refer to the KA-KIT (https://catenax-ng.github.io/product-knowledge/docs/development-view/modules#semantic-models).  
 The specific (reliability and behaviour) ontologies are based respectively compatible with the standardized SAMM Models( [Load Spectrum](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.classified_load_spectrum) and [Remaining Useful Life](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.rul/1.0.0/RemainingUsefulLife.ttl)) release by  Behaviour Twin team.

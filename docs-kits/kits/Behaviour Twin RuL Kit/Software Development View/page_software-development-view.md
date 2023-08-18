@@ -7,6 +7,9 @@ sidebar_position: 4
 
 ![Remaining Useful Life kit banner](@site/static/img/doc-rul_header-minified.png)
 
+<!--
+Development View of the Kit.
+-->
 
 <span style="font-size:3em;">&#x26a0;&#xfe0f;</span> **This is only a preview KIT.**  
 There will be changes in the following releases.
@@ -14,19 +17,17 @@ We plan to provide a more general RuL skill and more generalized interfaces for 
 input data. With these improvements, it will be much much easier and more flexible for you to
 participate in the RuL use case.
 
-
 # Overview
 The RuL use case takes advantage of knowledge graphs. Therefore, every participant must support the Knowledge Agent (see Knowledge Agent KIT).
 
 ## Roles
 As a developer in the Remaining Useful Life use case, you may apply to one or more
 of the following roles:
- - RuL consumer (RuL result requester)
- - skill provider (provider of the use case logic)
- - RuL data provider (provider of usage data, likely an OEM)
- - delegator (likely a supplier of a component that is assembled of subcomponents
-   which are providing RuL calculation services)
- - RuL calculation service provider (likely a supplier of a part or component)
+- RuL consumer (RuL result requester)
+- skill provider (provider of the use case logic)
+- RuL data provider (provider of usage data, likely an OEM)
+- delegator (likely a supplier of a component that is assembled of subcomponents which are providing RuL calculation services)
+- RuL calculation service provider (likely a supplier of a part or component)
 
 ## Logic
 The central logic of the RuL use case is a **RuL skill**.  
@@ -51,18 +52,18 @@ If you are a service provider, you need to have a running **remoting agent** wit
 
 For more information, see the operation view.
 
-## Mandatory components and standards
- - ontologies (semantic models)
- - usage data
- - calculation services
- - EDC + knowledge agent
- - delegation data
- - matchmaking agent: Mapping ontology to knowledge graph, integrated into KA-dataplane
- - binding agents:
-   - provisioning agent: provide data
-   - remoting agent: bind service to graph
+## Mandatory components
+- ontologies (semantic models)
+- usage data
+- calculation services
+- EDC + knowledge agent
+- delegation data
+- matchmaking agent: Mapping ontology to knowledge graph, integrated into KA-dataplane
+- binding agents:
+  - provisioning agent: provide data
+  - remoting agent: bind service to graph
 
-| | calculation service provider | supplier of a component | RuL data provider | RuL consumer | skill provider |
+| | calculation service provider | delegator | RuL data provider | RuL consumer | skill provider |
 | --------------------- | :---: | :---: | :---: | :---: | :---: |
 | EDC + knowledge agent <br/>+ matchmaking agent | x | x | x | x | x |
 | ontologies                                | x | x | x | x | x |
@@ -73,32 +74,15 @@ For more information, see the operation view.
 | calculation service                       | x |   |   |   |   |
 | remoting agent                            | x |   |   |   |   |
 
-
 ## Knowledge graph basics
-Knowledge graphs are buildup of semantic triplets (subject --predicate-> object), where subject and object are nodes, the predicate is a unidirectional edge. All nodes are object instances, and the edges between are the relations between these instances. For more information, see [W3C Resource Description Framework (RDF)](https://www.w3.org/RDF/).  
+Knowledge graphs are buildup of semantic triplets (subject --predicate-> object), where subject and object are nodes, the predicate is an unidirectional edge. All nodes are object instances, and the edges between them are their relations. For more information, see [W3C Resource Description Framework (RDF)](https://www.w3.org/RDF/).  
 Object types and relations are formally defined within ontologies.
 
 ## Basic Architecture
- (applies to RuL calculation service provider, RuL data provider)
+For a detailled view of the architecture with the konwledge agent see the Knowledge Agent KIT.
+Here you can see an overview over the used components and elements that must be developed:
 
-### What you must provide as a RuL calculation service provider
-With a 
-
-### What you must provide as a data provider
-As the name says, a data provider must provide data. 
-Delegation, Sub-Skill filling.
-As the initiator of the RuL calculation does not know all the related components and their manufacturers, the data provider has to make the connection to the next level.
-
-### What you must do as a initiator of RuL calculations
-If not provided by others, you must develop a skill that .
-In the future, this KIT will provide a generalized RuL skill that can be used as is (or adapted if necessary). 
-
-## Overview
-- Summary of used components (ontology, skill, standards, bindings)
-- Reference: Semantic Web (W3C)
-
-## Architecture?
-- adoption view?
+![Remaining Useful Life architecture overview](rul_architecture_overview.png)
 
 ## Ontology
 For the Behaviour Twin (BT) RuL User Case, beside the [core](https://github.com/catenax-ng/product-ontology/blob/main/ontology/core_ontology.ttl) and [common](https://github.com/catenax-ng/product-ontology/blob/main/ontology/common_ontology.ttl) ontologies, a specific ontology was defined. For our use cases following sub-ontologies are needed:
@@ -109,7 +93,7 @@ For the Behaviour Twin (BT) RuL User Case, beside the [core](https://github.com/
 All needed ontologies for the RuL use case are bundled in one named on our [Behaviour Twin Kit](https://github.com/catenax-ng/product-ontology/blob/main/ontology_use_case/behaviour_twin_use_case_ontology.ttl).
 
 General information about Knowledge-Agent Semantic Models refer to the KA-KIT (https://catenax-ng.github.io/product-knowledge/docs/development-view/modules#semantic-models).  
-The specific (reliability and behaviour) ontologies are based respectively compatible with the standardized SAMM Models( [Load Spectrum](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.classified_load_spectrum) and [Remaining Useful Life](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.rul/1.0.0/RemainingUsefulLife.ttl)) release by  Behaviour Twin team.
+The specific (reliability and behaviour) ontologies are based respectively compatible with the standardized SAMM Models ([Load Spectrum](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.classified_load_spectrum) and [Remaining Useful Life](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.rul/1.0.0/RemainingUsefulLife.ttl)) release by  Behaviour Twin team.
 
 For the calculation of the remaining useful life for a specific component, the service needs to get the Load Spectrum data to proceed with the calculation. Hence, in the reliability ontology all needed semantic models are defined.
 
@@ -128,7 +112,7 @@ cx-reliability:LoadSpectrum rdf:type owl:Class ;
                                            "Load Spectrum"@en .
 ```
 
-The RuL services were designed with interoperability in mind, thus the communication in both directions(input/input) fully supports the Catena-X Notification standard. These aspects are also covered by Catena-X ontologies. The RuL Calculation can return two values:
+The RuL services were designed with interoperability in mind, thus the communication in both directions (input/input) fully supports the Catena-X Notification standard. These aspects are also covered by Catena-X ontologies. The RuL Calculation can return two values:
 - Remaining Running Distance and
 - Remaining Operating Hours
 
@@ -439,6 +423,121 @@ If the given VAN is not found on OEM side, then we get an empty binding result:
 }
 ```
 
+# Data bindings for relational data
+Applies to: *RuL data provider* and *delegator*
+
+## Overview
+In this context, data are usage data as well as delegation data (where the sill/data have to go next).  
+
+In most cases, data are provided in relational form (relational databases, data lakes, ...).
+To provide such data as part of the knowledge graph, you have to bind/map them to the underlying ontologies.
+ 
+## Data mapping tool
+To bind the relational data to the knowledge graph, you can use a **provisioning agent**, also called the **data binding agent**. The software **Ontop** (see the Ontop webpage [https://ontop-vkg.org/](https://ontop-vkg.org/)), which is under the Apache 2.0 license, is our tool of choice in this case.  
+  
+## Data mapping configuration
+To configure the bindings, a config file for the Ontop software has to be created. The file is written in the Ontop mapping language and has the extension **.obda**. For more information, see the Knowledge Agent KIT.
+
+## Construction of a single data binding
+Each data binding consists of 3 lines in the config file.  
+The first line defines a unique mapping id (arbitrarily selectable).  
+The second line lists one or more RDF triplets (target).  
+The third line is a SQL statement on the relational data source.  
+
+A simple example:
+``` obda 
+  mappingId   partsvehicle
+  target      <{gearbox_id}> cx-vehicle:isPartOf <{vehicle_id}> .
+  source      SELECT vehicle_id, gearbox_id FROM vehicles
+```
+
+The target is described as a triple with two variables: gearbox_id and vehicle_id. The exact same variables must occur in the result of the source SQL statement. The SQL result is then mapped to the variables in the target triplets.  
+For each row in the SQL result, a triplet instance is created. If the SQL result is empty, no triplet instances are created.  
+The result of this example is a triplet that represents the relation between a specific vehicle its gearbox.
+
+A little more complex example:
+``` obda 
+  mappingId   vehicles
+  target      <{vehicle_id}> rdf:type cx-vehicle:Vehicle ; cx-vehicle:vehicleIdentificationNumber {van}^^xsd:string; cx-vehicle:worldManufaturerId bpnl:{oem_bpnl}; cx-vehicle:productionDate {production_date}^^xsd:date.
+  source      SELECT vehicle_id, van, oem_bpnl, production_date FROM vehicles
+```
+
+The target now consists of 4 triplets, all with the same subject (<{vehicle_id}>) and separated by a semicolon. The semicolon means, the following triplet only defines the predicate and the object while the subject from the previous triplet is reused.  
+In the example above, there are the following triplets:
+- *<{vehicle_id}> rdf:type cx-vehicle:Vehicle*: All objects in the database table/view "vehicles" are mapped to the type cx-vehicle:Vehicle.
+- *<{vehicle_id}> cx-vehicle:vehicleIdentificationNumber {van}^^xsd:string*: Relation between a vehicle and the related VAN. The type of VAN must be string.
+- *<{vehicle_id}> cx-vehicle:worldManufaturerId bpnl:{oem_bpnl}*: Relation between a vehicle and its manufacturer's BPN.
+- *<{vehicle_id}> cx-vehicle:productionDate {production_date}^^xsd:date*: Relation between a vehicle and it's date of production. The tyoe of production_date must be date.
+
+Complex types like the load spectra are composed of many triplets. If you have stored those load spectra as SAMM specified JSON strings, you may decompose them with specific JSON functions of your database system.
+
+### Full example
+The following example shows mappings at a OEM that can be used to determine the vehicle object by a given VIN, find the related gearbox and the associated gearbox load spectra:
+```obda 
+  [PrefixDeclaration]
+  cx-common:          https://w3id.org/catenax/ontology/common#
+  cx-core:            https://w3id.org/catenax/ontology/core#
+  cx-vehicle:         https://w3id.org/catenax/ontology/vehicle#
+  cx-reliability:     https://w3id.org/catenax/ontology/reliability#
+  uuid:               urn:uuid:
+  bpnl:               bpn:legal:
+  owl:                http://www.w3.org/2002/07/owl#
+  rdf:                http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  xml:                http://www.w3.org/XML/1998/namespace
+  xsd:                http://www.w3.org/2001/XMLSchema#
+  json:               https://json-schema.org/draft/2020-12/schema#
+  obda:               https://w3id.org/obda/vocabulary#
+  rdfs:               http://www.w3.org/2000/01/rdf-schema#
+  oem:                urn:oem:
+
+  [MappingDeclaration] @collection [[
+  mappingId   vehicles
+  target      <{vehicle_id}> rdf:type cx-vehicle:Vehicle ; cx-vehicle:vehicleIdentificationNumber {van}^^xsd:string; cx-vehicle:worldManufaturerId bpnl:{oem_bpnl}; cx-vehicle:productionDate {production_date}^^xsd:date.
+  source      SELECT vehicle_id, van, oem_bpnl, production_date FROM vehicles
+
+  mappingId   partsvehicle
+  target      <{gearbox_id}> cx-vehicle:isPartOf <{vehicle_id}> .
+  source      SELECT vehicle_id, gearbox_id FROM vehicles
+
+  mappingId   vehicleparts
+  target      <{vehicle_id}> cx-vehicle:hasPart <{gearbox_id}> .
+  source      SELECT vehicle_id, gearbox_id FROM vehicles
+
+  mappingId   parts
+  target      <{gearbox_id}> rdf:type cx-vehicle:Part ; cx-vehicle:id {gearbox_id}^^xsd:string; cx-vehicle:name {partTypeInformation_nameAtManufacturer}^^xsd:string; cx-vehicle:number {partTypeInformation_manufacturerPartId}^^xsd:string; cx-vehicle:supplier bpnl:{gearbox_manufacturer_bpnl}; cx-vehicle:productionDate {production_date}^^xsd:date .
+  source      SELECT gearbox_id, production_date, 'Differential Gear' as partTypeInformation_nameAtManufacturer, gearbox_manufacturer_bpnl, 'Dummy Gearbox' as partTypeInformation_manufacturerPartId FROM vehicles
+
+  mappingId   partAnalysis
+  target      oem:{newest_telematics_id} cx-reliability:analysedObject <{gearbox_id}>.
+  source      SELECT gearbox_id, newest_telematics_id FROM vehicles
+
+  mappingId   analysisInformation
+  target      oem:{id} rdf:type cx-reliability:Analysis; cx-reliability:operatingHoursOfVehicle {metadata_status_operatingHours}^^xsd:float; cx-core:startDateTime {metadata_status_date}^^xsd:dateTime; cx-core:endDateTime {metadata_status_date}^^xsd:dateTime; cx-reliability:mileageOfVehicle {metadata_status_mileage}^^xsd:int.
+  source      SELECT id, metadata_status_operatingHours, metadata_status_date, metadata_status_mileage FROM reading
+
+  mappingId   analysisResult
+  target      oem:{id} cx-reliability:result oem:{id}/{index}.
+  source      SELECT id, index FROM loadspectra
+
+  mappingId   loadspectrum
+  target      oem:{id}/{index} rdf:type cx-reliability:LoadSpectrum; cx-core:id {metadata_componentDescription}^^xsd:string; cx-core:name {metadata_projectDescription}^^xsd:string; cx-reliability:description {metadata_routeDescription}^^xsd:string; cx-reliability:countingValue {body_counts_countsName}^^xsd:string; cx-reliability:countingUnit {header_countingUnit}^^xsd:string; cx-reliability:countingMethod {header_countingMethod}^^xsd:string; cx-reliability:channels {header_channels}^^json:Object; cx-reliability:classes {body_classes}^^json:Object; cx-reliability:values {body_counts_countsList}^^json:Object .
+  source      SELECT id, index, metadata_componentDescription, metadata_projectDescription, metadata_routeDescription, header_countingUnit, header_countingMethod, header_channels, body_classes, body_counts_countsName, body_counts_countsList FROM loadspectra
+
+  ]]  
+```
+
+## Graph asset for the data binding
+To enable the knowledge agent's matchmaking agent to find the data bindings, a graph asset has to be regeisterd at the EDC. This asset must have a property "rdfs:isDefinedBy" that defines the shape of the provided graph.
+
+```
+"<https://w3id.org/catenax/usecase/behaviourtwin>,<https://w3id.org/catenax/ontology/core>,<https://w3id.org/catenax/ontology/vehicle>,<https://w3id.org/catenax/ontology/reliability>",
+
+            "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SPARQL",
+
+            "sh:shapesGraph": "@prefix cx-common: <https://w3id.org/catenax/ontology/common#>. \n@prefix : <GraphAsset?oem=BehaviourTwinReliability#> .\n@prefix cx-tele: <https://w3id.org/catenax/ontology/reliability#> .\n@prefix owl: <http://www.w3.org/2002/07/owl#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .@prefix : <urn:cx:Graph:oem:BehaviourTwin> .\n\n:OemLoadSpectrum rdf:type sh:NodeShape ;\n  sh:targetClass cx-tele:LoadSpectrum ;\n  sh:property [\n        sh:path cx-tele:provisionedBy ;\n        sh:hasValue <urn:bpn:legal:BPNL000000000OEM> \n    ] ;\n  sh:property [\n        sh:path cx-tele:Version ;\n        sh:hasValue \"0\"^^xsd:long \n    ] ;\n  sh:property [\n        sh:path cx-tele:component ;\n        sh:class :SupplierParts \n    ] .\n\n:SupplierParts rdf:type sh:NodeShape ;\n  sh:targetClass cx-tele:VehicleComponent ;\n  sh:property [\n        sh:path cx-tele:isProducedBy ;\n        sh:hasValue <urn:bpn:legal:BPNL0000SUPPLIER> \n    ] .\n"
+```
+For more information see the Knowledge Agent KIT.
+
 # Service Bindings
 Applies to: *RuL calculation service provider*
 
@@ -472,9 +571,9 @@ The RDF4J repository is the basic configuration that referes to the service obje
 
 The callback address in this example is the callback address of the own RDF4J server.
 
-### Binding of a Types to be bound
+### Types to be bound
 #### cx-fx:Function
-Definition of the function. It defines the endpoint and describes the input and output elements.
+Definition of the function. It defines the endpoint and describes the input and output elements (analogous to the ontology).
 
 ```ttl
 cx-behaviour:RemainingUsefulLife rdf:type cx-fx:Function;
@@ -528,6 +627,7 @@ The input data that are received from the knowledge graph are converted to the d
 
 #### cx-fx:Result
 The result of the service is also a JSON string. It consists of properties and output values.  
+Tha mapping must provide all data that are defined in the ontology.  
 The properties are of predefined types and are mapped directly (without further descriptions and attributes).  
 The output values are specified each separate.
 
@@ -540,7 +640,6 @@ The output values are specified each separate.
     cx-fx:output cx-behaviour:remainingOperatingHours;
     cx-fx:output cx-behaviour:remainingRunningDistance.
 ```
-
 
 #### cx-fx:ReturnValue
 The output values (return values) are specified with their path in the output JSON structure and their data type.
@@ -785,3 +884,15 @@ In this example, an asynchronous calculation service for gearbox RuL values is b
     cx-fx:valuePath "0.remainingUsefulLife.remainingRunningDistance";
     cx-fx:dataType xsd:int.
 ```
+
+## Graph asset for the service binding
+To enable the knowledge agent's matchmaking agent to find the service binding, a graph asset has to be regeisterd at the EDC. This asset must have a property "rdfs:isDefinedBy" that defines the shape of the provided graph.
+
+```
+"<https://w3id.org/catenax/ontology/common>,<https://w3id.org/catenax/ontology/core>,<https://w3id.org/catenax/ontology/function>,<https://w3id.org/catenax/ontology/behaviour>",
+
+            "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SPARQL",
+
+            "sh:shapesGraph": "@prefix cx-common: <https://w3id.org/catenax/ontology/common#>. \n@prefix : <GraphAsset?supplier=BehaviourTwinRUL#> .\n@prefix cx-prognosis: <https://w3id.org/catenax/ontology/behaviour#> .\n@prefix cx-fx: <https://w3id.org/catenax/ontology/function#> .\n@prefix owl: <http://www.w3.org/2002/07/owl#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n\n:Tier1LifetimePrognosis rdf:type sh:NodeShape ;\n  sh:targetClass cx-prognosis:Function ;\n  sh:property [\n        sh:path cx-prognosis:provisionedBy ;\n        sh:hasValue <urn:bpn:legal:BPNL000000000000> ]."
+```
+For more information see the Knowledge Agent KIT.

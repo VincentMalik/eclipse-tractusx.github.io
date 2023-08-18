@@ -78,12 +78,8 @@ For more information, see the operation view.
 Knowledge graphs are buildup of semantic triplets (subject --predicate-> object), where subject and object are nodes, the predicate is a unidirectional edge. All nodes are object instances, and the edges between are the relations between these instances. For more information, see [W3C Resource Description Framework (RDF)](https://www.w3.org/RDF/).  
 Object types and relations are formally defined within ontologies.
 
-
 ## Basic Architecture
  (applies to RuL calculation service provider, RuL data provider)
-
-
-
 
 ### What you must provide as a RuL calculation service provider
 With a 
@@ -97,17 +93,14 @@ As the initiator of the RuL calculation does not know all the related components
 If not provided by others, you must develop a skill that .
 In the future, this KIT will provide a generalized RuL skill that can be used as is (or adapted if necessary). 
 
-
-
 ## Overview
- - Summary of used components (ontology, skill, standards, bindings)
- - Reference: Semantic Web (W3C)
+- Summary of used components (ontology, skill, standards, bindings)
+- Reference: Semantic Web (W3C)
 
 ## Architecture?
- - adoption view?
+- adoption view?
 
 ## Ontology
-
 For the Behaviour Twin (BT) RuL User Case, beside the [core](https://github.com/catenax-ng/product-ontology/blob/main/ontology/core_ontology.ttl) and [common](https://github.com/catenax-ng/product-ontology/blob/main/ontology/common_ontology.ttl) ontologies, a specific ontology was defined. For our use cases following sub-ontologies are needed:
 - [reliability ontology](https://github.com/catenax-ng/product-ontology/blob/main/ontology/reliability_ontology.ttl)
 - [vehicle ontology](https://github.com/catenax-ng/product-ontology/blob/main/ontology/vehicle_ontology.ttl) and
@@ -136,8 +129,8 @@ cx-reliability:LoadSpectrum rdf:type owl:Class ;
 ```
 
 The RuL services were designed with interoperability in mind, thus the communication in both directions(input/input) fully supports the Catena-X Notification standard. These aspects are also covered by Catena-X ontologies. The RuL Calculation can return two values:
-* Remaining Running Distance and
-* Remaining Operating Hours
+- Remaining Running Distance and
+- Remaining Operating Hours
 
 For this purpose, in the behaviour_ontology, a function is defined:
 ``` ttl
@@ -194,10 +187,12 @@ cx-behaviour:remainingRunningDistance rdf:type cx-fx:ReturnValue;
 - [Remaining Useful Life](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.rul/1.0.0/RemainingUsefulLife.ttl)
 
 # RuL Skill
+Applies to: *RuL Skill provider*
+
 For the RuL calculation of a vehicle part, we have three different "roles" involved:
-* consumer: which request the RuL value by VIN.
-* OEM: which has the vehicle Load Spectrum data and forwards them by calling the supplier of that specific part.
-* Supplier: which provides the service for the RuL calculation for his parts.
+- consumer: which request the RuL value by VIN.
+- OEM: which has the vehicle Load Spectrum data and forwards them by calling the supplier of that specific part.
+- Supplier: which provides the service for the RuL calculation for his parts.
 
 A reference (sample) Agent-Skill for a Gearbox is implemented.
 
@@ -790,52 +785,3 @@ In this example, an asynchronous calculation service for gearbox RuL values is b
     cx-fx:valuePath "0.remainingUsefulLife.remainingRunningDistance";
     cx-fx:dataType xsd:int.
 ```
-
-# Short sample application
- - trivial REST-Controller service provider example (mockup, Java)
-
-# Deployment of Matchmaking/Binding agents
- - reference to KA-KIT (operations view)
- - Binding-/Remoting agents: OnTop/RDF4J
- - integrate configurations into deployment (bindings)
-
-
-<!--
-Development View of the Kit.
--->
-
-<!-- !Mandatory! -->
-## API Specifications
- 
- --> Agent data plane????
-
-
-<!-- Recommended -->
-## Sample Data
-
-In the following, example data for submodels are provided.
-
-### As Planned Submodels Sample Data
-
-### As Built Submodels Sample Data
-
-#### Submodel SerialPartTypization
-
-<!-- Recommended -->
-## Sample Implementation
-
-<!-- Recommended -->
-## Documentation in the Context of Development
-
-### Data Provisioning
-
-The following diagram shows a basic data processing flow how a company's internal data ...
-
-<!--![Basic Data FLow](../assets/data_provisioning_data_flow.png)-->
-
-#### Register Assets ...
-
-##### Property specificAssetIds
-
-
-...

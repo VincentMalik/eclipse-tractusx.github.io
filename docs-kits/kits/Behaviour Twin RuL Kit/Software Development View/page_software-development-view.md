@@ -87,12 +87,12 @@ Here you can see an overview over the used components and elements that must be 
 ![Remaining Useful Life architecture overview](../assets/rul_architecture_overview.png)
 
 ## Ontology
-For the Behaviour Twin (BT) RuL User Case, beside the [core](https://github.com/catenax-ng/product-ontology/blob/main/ontology/core_ontology.ttl) and [common](https://github.com/catenax-ng/product-ontology/blob/main/ontology/common_ontology.ttl) ontologies, a specific ontology was defined. For our use cases following sub-ontologies are needed:
-- [reliability ontology](https://github.com/catenax-ng/product-ontology/blob/main/ontology/reliability_ontology.ttl)
-- [vehicle ontology](https://github.com/catenax-ng/product-ontology/blob/main/ontology/vehicle_ontology.ttl) and
-- [behaviour ontology](https://github.com/catenax-ng/product-ontology/blob/main/ontology/reliability_ontology.ttl)
+For the Behaviour Twin (BT) RuL User Case, beside the [core](https://w3id.org/catenax/core_ontology.ttl) and [common](https://w3id.org/catenax/common_ontology.ttl) ontologies, a specific ontology was defined. For our use cases following sub-ontologies are needed:
+  - [reliability ontology](https://w3id.org/catenax/reliability_ontology.ttl)
+- [vehicle ontology](https://w3id.org/catenax/vehicle_ontology.ttl) and
+- [behaviour ontology](https://w3id.org/catenax/behaviour_twin.ttl)
 
-All needed ontologies for the RuL use case are bundled in one named on our [Behaviour Twin Kit](https://github.com/catenax-ng/product-ontology/blob/main/ontology_use_case/behaviour_twin_use_case_ontology.ttl).
+All needed ontologies for the RuL use case are bundled in one named on our [Behaviour Twin Kit](https://w3id.org/catenax/usecase/behaviour_twin.ttl.
 
 General information about Knowledge-Agent Semantic Models refer to the KA-KIT (https://catenax-ng.github.io/product-knowledge/docs/development-view/modules#semantic-models).  
 The specific (reliability and behaviour) ontologies are based respectively compatible with the standardized SAMM Models ([Load Spectrum](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.classified_load_spectrum) and [Remaining Useful Life](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.rul/1.0.0/RemainingUsefulLife.ttl)) release by  Behaviour Twin team.

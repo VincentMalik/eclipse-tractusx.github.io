@@ -331,7 +331,7 @@ The RuL results for the given VAN's is provided are provided as bindings for the
             },
             "supplier": {
                "type": "uri",
-               "value": "bpn:legal:BPNL00000002HCQ9"
+               "value": "bpn:legal:BPNL0000SUPPLIER"
             },
             "distanceKm": {
                "type": "",

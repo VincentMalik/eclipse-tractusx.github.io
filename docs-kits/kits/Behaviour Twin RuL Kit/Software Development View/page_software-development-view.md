@@ -254,7 +254,7 @@ For the RuL calculation of a vehicle part, we have three different "roles" invol
 
 A reference (sample) Agent-Skill for a Gearbox is implemented,
 
-For more information regarding the RuL Skill see [Agent Kit](https://bit.ly/tractusx-agents).
+For more information regarding the RuL Skill see [Knowledge Agent KIT](https://bit.ly/tractusx-agents).
 
 ``` sparql
 ################################################################
@@ -1055,4 +1055,4 @@ To enable the knowledge agent's matchmaking agent to find the service binding, a
             "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SPARQL",
             "sh:shapesGraph": "@prefix cx-common: <https://w3id.org/catenax/ontology/common#>. \n@prefix : <GraphAsset?supplier=BehaviourTwinRUL#> .\n@prefix cx-prognosis: <https://w3id.org/catenax/ontology/behaviour#> .\n@prefix cx-fx: <https://w3id.org/catenax/ontology/function#> .\n@prefix owl: <http://www.w3.org/2002/07/owl#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n\n:Tier1LifetimePrognosis rdf:type sh:NodeShape ;\n  sh:targetClass cx-prognosis:Function ;\n  sh:property [\n        sh:path cx-prognosis:provisionedBy ;\n        sh:hasValue <urn:bpn:legal:BPNL000000000000> ]."
 ```
-For more information see the Knowledge Agent KIT.
+For more information see the [Knowledge Agent KIT](https://bit.ly/tractusx-agents).

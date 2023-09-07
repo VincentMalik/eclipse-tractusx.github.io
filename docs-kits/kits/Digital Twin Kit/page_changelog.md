@@ -5,37 +5,52 @@ description: 'Digital Twin Kit'
 sidebar_position: 1
 ---
 
-### Digital Twin Kit
+![DT Kit Pictotogram](assets/img/DTKIT_pictogram_blue.png)
+
+### Digital Twin KIT
 
 All notable changes to this Kit will be documented in this file.
 
-## [0.2.0] - 2023-07-20
+## [1.0.0] - 2023-08-17
 
 ### Added
 
-- Additional graphic on terminology
+- version from release
 
 ### Changed
+
+- couple of bugfixes raised by reviewers
+
+## [0.2.0] - 2023-08-08
+
+<h3>Added</h3>
+
+- Additional figure on terminology
+- section on entire discovery mechanism
+- pictograms
+
+<h3>Changed</h3>
 
 - Clarification on decentralization of registries
 - Minor improvements based on stakeholders' feedback
 - figures optimized for dark backgrounds
+- example data adjusted to standards for CX R3.2
 
-### Removed
+<h3>Removed</h3>
 
 - ./.
 
 
 ## [0.1.0] - 2023-07-12
 
-### Added
+<h3>Added</h3>
 
 - Initial version of the Kit including adoption, operation and development view incl. all relevant API specifications.
 
-### Changed
+<h3>Changed</h3>
 
 - ./.
 
-### Removed
+<h3>Removed</h3>
 
 - ./.

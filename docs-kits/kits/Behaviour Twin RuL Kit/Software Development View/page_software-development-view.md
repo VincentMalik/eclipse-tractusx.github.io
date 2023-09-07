@@ -100,6 +100,30 @@ The specific (reliability and behaviour) ontologies are based respectively compa
 For the calculation of the remaining useful life for a specific component, the service needs to get the Load Spectrum data to proceed with the calculation. Hence, in the reliability ontology all needed semantic models are defined.
 
 ``` ttl
+################################################################
+# Copyright (c) 2022,2023 T-Systems International GmbH
+# Copyright (c) 2022,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+# Copyright (c) 2022,2023 ZF Friedrichshafen AG
+# Copyright (c) 2023 Allgemeine Deutsche Automobil-Club (ADAC) e.V
+# Copyright (c) 2022,2023 Mercedes-Benz AG
+# Copyright (c) 2022,2023 Contributors to the Catena-X Association
+#
+# See the NOTICE file(s) distributed with this work for additional
+# information regarding copyright ownership.
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License, Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0.
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+#
+# SPDX-License-Identifier: Apache-2.0
+################################################################
+
 ###  https://w3id.org/catenax/ontology/reliability#LoadSpectrum
 cx-reliability:LoadSpectrum rdf:type owl:Class ;
                             rdfs:subClassOf cx-reliability:AnalysisResult ;
@@ -120,6 +144,30 @@ The RuL services were designed with interoperability in mind, thus the communica
 
 For this purpose, in the behaviour_ontology, a function is defined:
 ``` ttl
+################################################################
+# Copyright (c) 2022,2023 T-Systems International GmbH
+# Copyright (c) 2022,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+# Copyright (c) 2022,2023 ZF Friedrichshafen AG
+# Copyright (c) 2023 Allgemeine Deutsche Automobil-Club (ADAC) e.V
+# Copyright (c) 2022,2023 Mercedes-Benz AG
+# Copyright (c) 2022,2023 Contributors to the Catena-X Association
+#
+# See the NOTICE file(s) distributed with this work for additional
+# information regarding copyright ownership.
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License, Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0.
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+#
+# SPDX-License-Identifier: Apache-2.0
+################################################################
+
 cx-behaviour:RemainingUsefulLife rdf:type cx-fx:Function;
   dc:description "Remaining Useful Life is a Prediction of the Estimated Mileage/Runtime until a Breakdown."@en ;
   dc:title "Remaining Useful Life" ;
@@ -151,6 +199,30 @@ cx-behaviour:RemainingUsefulLife rdf:type cx-fx:Function;
 
 The result contains the expected values:
 ``` ttl
+################################################################
+# Copyright (c) 2022,2023 T-Systems International GmbH
+# Copyright (c) 2022,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+# Copyright (c) 2022,2023 ZF Friedrichshafen AG
+# Copyright (c) 2023 Allgemeine Deutsche Automobil-Club (ADAC) e.V
+# Copyright (c) 2022,2023 Mercedes-Benz AG
+# Copyright (c) 2022,2023 Contributors to the Catena-X Association
+#
+# See the NOTICE file(s) distributed with this work for additional
+# information regarding copyright ownership.
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License, Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0.
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+#
+# SPDX-License-Identifier: Apache-2.0
+################################################################
+
 cx-behaviour:response rdf:type cx-fx:Result;
 dc:description "The asynchronous notification response."@en ;
 dc:title "Asynchronous notification response." ;
@@ -180,9 +252,35 @@ For the RuL calculation of a vehicle part, we have three different "roles" invol
 - OEM: which has the vehicle Load Spectrum data and forwards them by calling the supplier of that specific part.
 - Supplier: which provides the service for the RuL calculation for his parts.
 
-A reference (sample) Agent-Skill for a Gearbox is implemented.
+A reference (sample) Agent-Skill for a Gearbox is implemented,
+
+For more information regarding the RuL Skill see [Agent Kit](https://bit.ly/tractusx-agents).
 
 ``` sparql
+################################################################
+# Copyright (c) 2022,2023 T-Systems International GmbH
+# Copyright (c) 2022,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+# Copyright (c) 2022,2023 ZF Friedrichshafen AG
+# Copyright (c) 2023 Allgemeine Deutsche Automobil-Club (ADAC) e.V
+# Copyright (c) 2022,2023 Mercedes-Benz AG
+# Copyright (c) 2022,2023 Contributors to the Catena-X Association
+#
+# See the NOTICE file(s) distributed with this work for additional
+# information regarding copyright ownership.
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License, Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0.
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+#
+# SPDX-License-Identifier: Apache-2.0
+################################################################
+
 PREFIX cx-common:       <https://w3id.org/catenax/ontology/common#>
 PREFIX cx-core:         <https://w3id.org/catenax/ontology/core#>
 PREFIX cx-vehicle:      <https://w3id.org/catenax/ontology/vehicle#>
@@ -390,7 +488,7 @@ The first line defines a unique mapping id (arbitrarily selectable).
 The second line lists one or more RDF triplets (target).  
 The third line is a SQL statement on the relational data source.  
 
-A simple example:
+A simple example from:
 ``` obda 
   mappingId   partsvehicle
   target      <{gearbox_id}> cx-vehicle:isPartOf <{vehicle_id}> .
@@ -419,7 +517,7 @@ Complex types like the load spectra are composed of many triplets. If you have s
 
 ### Full example
 The following example shows mappings at a OEM that can be used to determine the vehicle object by a given VIN, find the related gearbox and the associated gearbox load spectra:
-```obda 
+```obda
   [PrefixDeclaration]
   cx-common:          https://w3id.org/catenax/ontology/common#
   cx-core:            https://w3id.org/catenax/ontology/core#
@@ -477,9 +575,7 @@ To enable the knowledge agent's matchmaking agent to find the data bindings, a g
 
 ```
 "<https://w3id.org/catenax/usecase/behaviourtwin>,<https://w3id.org/catenax/ontology/core>,<https://w3id.org/catenax/ontology/vehicle>,<https://w3id.org/catenax/ontology/reliability>",
-
             "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SPARQL",
-
             "sh:shapesGraph": "@prefix cx-common: <https://w3id.org/catenax/ontology/common#>. \n@prefix : <GraphAsset?oem=BehaviourTwinReliability#> .\n@prefix cx-tele: <https://w3id.org/catenax/ontology/reliability#> .\n@prefix owl: <http://www.w3.org/2002/07/owl#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .@prefix : <urn:cx:Graph:oem:BehaviourTwin> .\n\n:OemLoadSpectrum rdf:type sh:NodeShape ;\n  sh:targetClass cx-tele:LoadSpectrum ;\n  sh:property [\n        sh:path cx-tele:provisionedBy ;\n        sh:hasValue <urn:bpn:legal:BPNL000000000OEM> \n    ] ;\n  sh:property [\n        sh:path cx-tele:Version ;\n        sh:hasValue \"0\"^^xsd:long \n    ] ;\n  sh:property [\n        sh:path cx-tele:component ;\n        sh:class :SupplierParts \n    ] .\n\n:SupplierParts rdf:type sh:NodeShape ;\n  sh:targetClass cx-tele:VehicleComponent ;\n  sh:property [\n        sh:path cx-tele:isProducedBy ;\n        sh:hasValue <urn:bpn:legal:BPNL0000SUPPLIER> \n    ] .\n"
 ```
 For more information see the Knowledge Agent KIT.
@@ -502,17 +598,41 @@ The configuration is written in Turtle (Terse RDF Triple Language) and has the e
 The RDF4J repository is the basic configuration that referes to the service object and defines the callback endpoint for an asynchronous response of this service.
 
 ```ttl
-  [] rdf:type rep:Repository ;
-    rep:repositoryID "rul" ;
-    rdfs:label "Remainig Useful Life Functions Repository" ;
-    rep:repositoryImpl [
-        rep:repositoryType "openrdf:SailRepository" ;
-        sr:sailImpl [
-          sail:sailType "org.eclipse.tractusx.agents:Remoting" ;
-          cx-fx:supportsInvocation cx-behaviour:RemainingUsefulLife;
-          cx-fx:callbackAddress <https://remoting-agent.supplier.com/rdf4j-server/callback>;
-        ]
-    ].
+################################################################
+# Copyright (c) 2022,2023 T-Systems International GmbH
+# Copyright (c) 2022,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+# Copyright (c) 2022,2023 ZF Friedrichshafen AG
+# Copyright (c) 2023 Allgemeine Deutsche Automobil-Club (ADAC) e.V
+# Copyright (c) 2022,2023 Mercedes-Benz AG
+# Copyright (c) 2022,2023 Contributors to the Catena-X Association
+#
+# See the NOTICE file(s) distributed with this work for additional
+# information regarding copyright ownership.
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License, Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0.
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+#
+# SPDX-License-Identifier: Apache-2.0
+################################################################
+
+[] rdf:type rep:Repository ;
+  rep:repositoryID "rul" ;
+  rdfs:label "Remainig Useful Life Functions Repository" ;
+  rep:repositoryImpl [
+      rep:repositoryType "openrdf:SailRepository" ;
+      sr:sailImpl [
+        sail:sailType "org.eclipse.tractusx.agents:Remoting" ;
+        cx-fx:supportsInvocation cx-behaviour:RemainingUsefulLife;
+        cx-fx:callbackAddress <https://remoting-agent.supplier.com/rdf4j-server/callback>;
+      ]
+  ].
 ```
 
 The callback address in this example is the callback address of the own RDF4J server.
@@ -522,6 +642,30 @@ The callback address in this example is the callback address of the own RDF4J se
 Definition of the function. It defines the endpoint and describes the input and output elements (analogous to the ontology).
 
 ```ttl
+################################################################
+# Copyright (c) 2022,2023 T-Systems International GmbH
+# Copyright (c) 2022,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+# Copyright (c) 2022,2023 ZF Friedrichshafen AG
+# Copyright (c) 2023 Allgemeine Deutsche Automobil-Club (ADAC) e.V
+# Copyright (c) 2022,2023 Mercedes-Benz AG
+# Copyright (c) 2022,2023 Contributors to the Catena-X Association
+#
+# See the NOTICE file(s) distributed with this work for additional
+# information regarding copyright ownership.
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License, Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0.
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+#
+# SPDX-License-Identifier: Apache-2.0
+################################################################
+
 cx-behaviour:RemainingUsefulLife rdf:type cx-fx:Function;
     dcterms:description "Remaining Useful Life is an asynchronous batch invocation."@en ;
     dcterms:title "Remaining Useful Life" ;
@@ -564,11 +708,11 @@ cx-behaviour:RemainingUsefulLife rdf:type cx-fx:Function;
 The input data that are received from the knowledge graph are converted to the desired JSON format that is requested by the service. Therefore, each value (input parameter) that is represented in the ontology as a separate object must be described as an argument which is related to the corresponding JSON path. The argument name represents the JSON path. Default values can be specified in case some values are not present in the knowledge graph.
 
 ```ttl
-  cx-behaviour:recipient rdf:type cx-fx:Argument;
-    dcterms:description "Recipient of the notification as a BPN."@en ;
-    dcterms:title "Notification Recipient";
-    cx-fx:argumentName "header.recipientBPN";
-    cx-fx:default "anonymous".
+cx-behaviour:recipient rdf:type cx-fx:Argument;
+  dcterms:description "Recipient of the notification as a BPN."@en ;
+  dcterms:title "Notification Recipient";
+  cx-fx:argumentName "header.recipientBPN";
+  cx-fx:default "anonymous".
 ```
 
 #### cx-fx:Result
@@ -578,257 +722,329 @@ The properties are of predefined types and are mapped directly (without further 
 The output values are specified each separate.
 
 ```ttl
-  cx-behaviour:response rdf:type cx-fx:Result;
-    dcterms:description "The asynchronous notification response."@en ;
-    dcterms:title "Asynchronous notification response." ;
-    cx-fx:callbackProperty "header.referencedNotificationID";
-    cx-fx:outputProperty "content.endurancePredictorOutputs";
-    cx-fx:output cx-behaviour:remainingOperatingHours;
-    cx-fx:output cx-behaviour:remainingRunningDistance.
+################################################################
+# Copyright (c) 2022,2023 T-Systems International GmbH
+# Copyright (c) 2022,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+# Copyright (c) 2022,2023 ZF Friedrichshafen AG
+# Copyright (c) 2023 Allgemeine Deutsche Automobil-Club (ADAC) e.V
+# Copyright (c) 2022,2023 Mercedes-Benz AG
+# Copyright (c) 2022,2023 Contributors to the Catena-X Association
+#
+# See the NOTICE file(s) distributed with this work for additional
+# information regarding copyright ownership.
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License, Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0.
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+#
+# SPDX-License-Identifier: Apache-2.0
+################################################################
+
+cx-behaviour:response rdf:type cx-fx:Result;
+  dcterms:description "The asynchronous notification response."@en ;
+  dcterms:title "Asynchronous notification response." ;
+  cx-fx:callbackProperty "header.referencedNotificationID";
+  cx-fx:outputProperty "content.endurancePredictorOutputs";
+  cx-fx:output cx-behaviour:remainingOperatingHours;
+  cx-fx:output cx-behaviour:remainingRunningDistance.
 ```
 
 #### cx-fx:ReturnValue
 The output values (return values) are specified with their path in the output JSON structure and their data type.
 
 ```ttl
-  cx-behaviour:remainingOperatingHours rdf:type cx-fx:ReturnValue;
-    dcterms:description "Predicted Operating Hours of Remaining Useful Life Response"@en ;
-    dcterms:title "Remaining Useful Life Operating Hours" ;
-    cx-fx:valuePath "0.remainingUsefulLife.remainingOperatingHours";
-    cx-fx:dataType xsd:float.
+################################################################
+# Copyright (c) 2022,2023 T-Systems International GmbH
+# Copyright (c) 2022,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+# Copyright (c) 2022,2023 ZF Friedrichshafen AG
+# Copyright (c) 2023 Allgemeine Deutsche Automobil-Club (ADAC) e.V
+# Copyright (c) 2022,2023 Mercedes-Benz AG
+# Copyright (c) 2022,2023 Contributors to the Catena-X Association
+#
+# See the NOTICE file(s) distributed with this work for additional
+# information regarding copyright ownership.
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License, Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0.
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+#
+# SPDX-License-Identifier: Apache-2.0
+################################################################
+
+cx-behaviour:remainingOperatingHours rdf:type cx-fx:ReturnValue;
+  dcterms:description "Predicted Operating Hours of Remaining Useful Life Response"@en ;
+  dcterms:title "Remaining Useful Life Operating Hours" ;
+  cx-fx:valuePath "0.remainingUsefulLife.remainingOperatingHours";
+  cx-fx:dataType xsd:float.
 ```
 
 ### Full Example
 In this example, an asynchronous calculation service for gearbox RuL values is bound. It uses the Catena-X notification format as a container for the input data. The content of the notification is a JSON structure with a list of load spectra in it. The input format provides more than one Element (batch processing), but the RuL logic always requires exact one input per calculation. Therefore, always the first (and only the first) item of the input list is bound.
 
 ```ttl
-  #
-  # Rdf4j configuration for a rul-specific remoting
-  #
-  @prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-  @prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#>.
-  @prefix rep:            <http://www.openrdf.org/config/repository#>.
-  @prefix sr:             <http://www.openrdf.org/config/repository/sail#>.
-  @prefix sail:           <http://www.openrdf.org/config/sail#>.
-  @prefix sp:             <http://spinrdf.org/sp#>.
-  @prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
-  @prefix json:           <https://json-schema.org/draft/2020-12/schema#> .
-  @prefix dcterms:        <http://purl.org/dc/terms/> .
-  @prefix cx-fx:          <https://w3id.org/catenax/ontology/function#>.
-  @prefix cx-common:      <https://w3id.org/catenax/ontology/common#>.
-  @prefix cx-core:        <https://w3id.org/catenax/ontology/core#>.
-  @prefix cx-vehicle:     <https://w3id.org/catenax/ontology/vehicle#>.
-  @prefix cx-reliability: <https://w3id.org/catenax/ontology/reliability#>.
-  @prefix cx-behaviour:   <https://w3id.org/catenax/ontology/behaviour#>.
-  
-  [] rdf:type rep:Repository ;
-    rep:repositoryID "rul" ;
-    rdfs:label "Remainig Useful Life Functions Repository" ;
-    rep:repositoryImpl [
-        rep:repositoryType "openrdf:SailRepository" ;
-        sr:sailImpl [
-          sail:sailType "org.eclipse.tractusx.agents:Remoting" ;
-          cx-fx:supportsInvocation cx-behaviour:RemainingUsefulLife;
-          cx-fx:callbackAddress <https://remoting-agent.supplier.com/rdf4j-server/callback>;
-        ]
-    ].
-  
-  cx-behaviour:RemainingUsefulLife rdf:type cx-fx:Function;
-    dcterms:description "Remaining Useful Life is an asynchronous batch invocation."@en ;
-    dcterms:title "Remaining Useful Life" ;
-    cx-fx:targetUri "https://rul.supplier.com/api/v1/routine/notification";
-    cx-fx:invocationMethod "POST-JSON";
-  # cx-common:authenticationKey "Authorization";
-  # cx-common:authenticationCode "Basic Zdm7vsdgasfghcg==";
-    cx-fx:invocationMethod "POST-JSON";
-    cx-fx:invocationIdProperty "header.notificationID,content.requestRefId";
-    cx-fx:callbackProperty "header.respondAssetId";
-    cx-fx:input cx-behaviour:notification;
-    cx-fx:input cx-behaviour:sender;
-    cx-fx:input cx-behaviour:senderConnector;
-    cx-fx:input cx-behaviour:recipient;
-    cx-fx:input cx-behaviour:recipientConnector;
-    cx-fx:input cx-behaviour:recipient;
-    cx-fx:input cx-behaviour:recipientConnector;
-    cx-fx:input cx-behaviour:severity;
-    cx-fx:input cx-behaviour:status;
-    cx-fx:input cx-behaviour:targetDate;
-    cx-fx:input cx-behaviour:timeStamp;
-    cx-fx:input cx-behaviour:classification;
-    cx-fx:input cx-behaviour:component;
-    cx-fx:input cx-behaviour:observationType;
-    cx-fx:input cx-behaviour:statusDate;
-    cx-fx:input cx-behaviour:statusOperatingHours;
-    cx-fx:input cx-behaviour:statusMileage;
-    cx-fx:input cx-behaviour:observationType;
-    cx-fx:input cx-behaviour:metadata;
-    cx-fx:input cx-behaviour:countingMethod;
-    cx-fx:input cx-behaviour:countingValue;
-    cx-fx:input cx-behaviour:countingUnit;
-    cx-fx:input cx-behaviour:headerChannels;
-    cx-fx:input cx-behaviour:bodyClasses;
-    cx-fx:input cx-behaviour:bodyCountsList;
-    cx-fx:result cx-behaviour:response.
-  
-  cx-behaviour:notification rdf:type cx-fx:Argument;
-    dcterms:description "A default notification output template."@en ;
-    dcterms:title "Notification Template";
-    cx-fx:argumentName ".";
-    cx-fx:dataType json:Object;
-    cx-fx:priority "-1"^^xsd:integer;
-    #cx-fx:default "{ \"content\": { \"endurancePredictorInputs\": [ { } ]}}"^^json:Object.
-    cx-fx:default "{ \"content\": { \"endurancePredictorInputs\": [ ]}}"^^json:Object.
-  
-  cx-behaviour:sender rdf:type cx-fx:Argument;
-    dcterms:description "Sender of the notification as a BPN."@en ;
-    dcterms:title "Notification Sender";
-    cx-fx:argumentName "header.senderBPN";
-    cx-fx:default "anonymous".
-  
-  cx-behaviour:senderConnector rdf:type cx-fx:Argument;
-    dcterms:description "Sender Address of the notification as a URL."@en ;
-    dcterms:title "Notification Sender Address";
-    cx-fx:argumentName "header.senderAddress";
-    cx-fx:default "unknown".
-  
-  cx-behaviour:recipient rdf:type cx-fx:Argument;
-    dcterms:description "Recipient of the notification as a BPN."@en ;
-    dcterms:title "Notification Recipient";
-    cx-fx:argumentName "header.recipientBPN";
-    cx-fx:default "anonymous".
-  
-  cx-behaviour:recipientConnector rdf:type cx-fx:Argument;
-    dcterms:description "Recipient Address of the notification as a URL."@en ;
-    dcterms:title "Notification Recipient Address";
-    cx-fx:argumentName "header.recipientAddress";
-    cx-fx:default "unknown".
-  
-  cx-behaviour:severity rdf:type cx-fx:Argument;
-    dcterms:description "Severity of the notification."@en ;
-    dcterms:title "Notification Severity";
-    cx-fx:argumentName "header.severity";
-    cx-fx:dataType xsd:string;
-    cx-fx:default "MINOR".
-  
-  cx-behaviour:status rdf:type cx-fx:Argument;
-    dcterms:description "Status of the notification."@en ;
-    dcterms:title "Notification Status";
-    cx-fx:argumentName "header.status";
-    cx-fx:dataType xsd:string;
-    cx-fx:default "SENT".
-  
-  cx-behaviour:targetDate rdf:type cx-fx:Argument;
-    dcterms:description "Target Date of the notification."@en ;
-    dcterms:title "Notification Target Date";
-    cx-fx:dataType xsd:dateTime;
-    cx-fx:argumentName "header.targetDate".
-  
-  cx-behaviour:timeStamp rdf:type cx-fx:Argument;
-    dcterms:description "Timestamp of the notification."@en ;
-    dcterms:title "Notification Timestamp";
-    cx-fx:dataType xsd:dateTime;
-    cx-fx:argumentName "header.timeStamp".
-  
-  cx-behaviour:classification rdf:type cx-fx:Argument;
-    dcterms:description "Classification of the notification."@en ;
-    dcterms:title "Notification Classification";
-    cx-fx:argumentName "header.classification";
-    cx-fx:dataType xsd:string;
-    cx-fx:default "RemainingUsefulLifePredictor".
-  
-  cx-behaviour:component rdf:type cx-fx:Argument;
-    dcterms:description "Component of the Predicition."@en ;
-    dcterms:title "Predicted Component";
-    cx-fx:formsBatchGroup "true"^^xsd:boolean;
-    cx-fx:argumentName "content.endurancePredictorInputs.0.componentId,content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.targetComponentId".
-  
-  cx-behaviour:observationType rdf:type cx-fx:Argument;
-    dcterms:description "The type of observation made."@en ;
-    dcterms:title "Observation Type";
-    cx-fx:argumentName "content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.metadata.componentDescription";
-    cx-fx:dataType xsd:string.
-  
-  cx-behaviour:metadata rdf:type cx-fx:Argument;
-    dcterms:description "Metadata of the Loadspectrum."@en ;
-    dcterms:title "Loadspectrum Metadata";
-    cx-fx:argumentName "content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}";
-    cx-fx:dataType json:Object;
-    cx-fx:priority "0"^^xsd:integer;
-    cx-fx:default "{ \"metadata\":{ \"projectDescription\": \"pnr_76543\", \"routeDescription\": \"logged\" }, \"bammId\": \"urn:bamm:io.openmanufacturing.digitaltwin:1.0.0#ClassifiedLoadSpectrum\" }"^^json:Object.
-  
-  cx-behaviour:statusDate rdf:type cx-fx:Argument;
-    dcterms:description "Time of Recording."@en ;
-    dcterms:title "Loadspectrum Recording Time";
-    cx-fx:dataType xsd:dateTime;
-    cx-fx:argumentName "content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.metadata.status.date".
-  
-  cx-behaviour:statusOperatingHours rdf:type cx-fx:Argument;
-    dcterms:description "Operating Hours of Target Component at Time of Recording."@en ;
-    dcterms:title "Loadspectrum Operating Hours";
-    cx-fx:dataType xsd:float;
-    cx-fx:argumentName "content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.metadata.status.operatingHours".
-  
-  cx-behaviour:statusMileage rdf:type cx-fx:Argument;
-    dcterms:description "Mileage of Component at Time of Recording."@en ;
-    dcterms:title "Loadspectrum Mileage";
-    cx-fx:dataType xsd:int;
-    cx-fx:argumentName "content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.metadata.status.mileage".
-  
-  cx-behaviour:countingUnit rdf:type cx-fx:Argument;
-    dcterms:description "Counting Unit of Load Spectrum."@en ;
-    dcterms:title "Loadspectrum Counting Unit";
-    cx-fx:dataType xsd:string;
-    cx-fx:argumentName "content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.header.countingUnit".
-  
-  cx-behaviour:countingValue rdf:type cx-fx:Argument;
-    dcterms:description "Counting Value Name of Load Spectrum."@en ;
-    dcterms:title "Loadspectrum Counting Value";
-    cx-fx:dataType xsd:string;
-    cx-fx:argumentName "content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.header.countingValue,content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.body.counts.countsName".
-  
-  cx-behaviour:countingMethod rdf:type cx-fx:Argument;
-    dcterms:description "Counting Method of Load Spectrum."@en ;
-    dcterms:title "Loadspectrum Counting Method";
-    cx-fx:dataType xsd:string;
-    cx-fx:argumentName "content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.header.countingMethod".
-  
-  cx-behaviour:headerChannels rdf:type cx-fx:Argument;
-    dcterms:description "Channels of Load Spectrum."@en ;
-    dcterms:title "Loadspectrum Channels";
-    cx-fx:dataType json:Object;
-    cx-fx:argumentName "content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.header.channels".
-  
-  cx-behaviour:bodyClasses rdf:type cx-fx:Argument;
-    dcterms:description "Classes of Load Spectrum."@en ;
-    dcterms:title "Loadspectrum Classes";
-    cx-fx:dataType json:Object;
-    cx-fx:argumentName "content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.body.classes".
-  
-  cx-behaviour:bodyCountsList rdf:type cx-fx:Argument;
-    dcterms:description "Counts List of Load Spectrum."@en ;
-    dcterms:title "Loadspectrum Counts List";
-    cx-fx:dataType json:Object;
-    cx-fx:argumentName "content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.body.counts.countsList".
-  
-  cx-behaviour:response rdf:type cx-fx:Result;
-    dcterms:description "The asynchronous notification response."@en ;
-    dcterms:title "Asynchronous notification response." ;
-    cx-fx:callbackProperty "header.referencedNotificationID";
-    cx-fx:outputProperty "content.endurancePredictorOutputs";
-    cx-fx:output cx-behaviour:remainingOperatingHours;
-    cx-fx:output cx-behaviour:remainingRunningDistance.
-  
-  cx-behaviour:remainingOperatingHours rdf:type cx-fx:ReturnValue;
-    dcterms:description "Predicted Operating Hours of Remaining Useful Life Response"@en ;
-    dcterms:title "Remaining Useful Life Operating Hours" ;
-    cx-fx:valuePath "0.remainingUsefulLife.remainingOperatingHours";
-    cx-fx:dataType xsd:float.
-  
-  cx-behaviour:remainingRunningDistance rdf:type cx-fx:ReturnValue;
-    dcterms:description "Predicted Distance of Remaining Useful Life Response"@en ;
-    dcterms:title "Remaining Useful Life Distance" ;
-    cx-fx:valuePath "0.remainingUsefulLife.remainingRunningDistance";
-    cx-fx:dataType xsd:int.
+################################################################
+# Copyright (c) 2022,2023 T-Systems International GmbH
+# Copyright (c) 2022,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+# Copyright (c) 2022,2023 ZF Friedrichshafen AG
+# Copyright (c) 2023 Allgemeine Deutsche Automobil-Club (ADAC) e.V
+# Copyright (c) 2022,2023 Mercedes-Benz AG
+# Copyright (c) 2022,2023 Contributors to the Catena-X Association
+#
+# See the NOTICE file(s) distributed with this work for additional
+# information regarding copyright ownership.
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License, Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0.
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+#
+# SPDX-License-Identifier: Apache-2.0
+################################################################
+
+#
+# Rdf4j configuration for a rul-specific remoting
+#
+@prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rep:            <http://www.openrdf.org/config/repository#>.
+@prefix sr:             <http://www.openrdf.org/config/repository/sail#>.
+@prefix sail:           <http://www.openrdf.org/config/sail#>.
+@prefix sp:             <http://spinrdf.org/sp#>.
+@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
+@prefix json:           <https://json-schema.org/draft/2020-12/schema#> .
+@prefix dcterms:        <http://purl.org/dc/terms/> .
+@prefix cx-fx:          <https://w3id.org/catenax/ontology/function#>.
+@prefix cx-common:      <https://w3id.org/catenax/ontology/common#>.
+@prefix cx-core:        <https://w3id.org/catenax/ontology/core#>.
+@prefix cx-vehicle:     <https://w3id.org/catenax/ontology/vehicle#>.
+@prefix cx-reliability: <https://w3id.org/catenax/ontology/reliability#>.
+@prefix cx-behaviour:   <https://w3id.org/catenax/ontology/behaviour#>.
+
+[] rdf:type rep:Repository ;
+  rep:repositoryID "rul" ;
+  rdfs:label "Remainig Useful Life Functions Repository" ;
+  rep:repositoryImpl [
+      rep:repositoryType "openrdf:SailRepository" ;
+      sr:sailImpl [
+        sail:sailType "org.eclipse.tractusx.agents:Remoting" ;
+        cx-fx:supportsInvocation cx-behaviour:RemainingUsefulLife;
+        cx-fx:callbackAddress <https://remoting-agent.supplier.com/rdf4j-server/callback>;
+      ]
+  ].
+
+cx-behaviour:RemainingUsefulLife rdf:type cx-fx:Function;
+  dcterms:description "Remaining Useful Life is an asynchronous batch invocation."@en ;
+  dcterms:title "Remaining Useful Life" ;
+  cx-fx:targetUri "https://rul.supplier.com/api/v1/routine/notification";
+  cx-fx:invocationMethod "POST-JSON";
+# cx-common:authenticationKey "Authorization";
+# cx-common:authenticationCode "Basic Zdm7vsdgasfghcg==";
+  cx-fx:invocationMethod "POST-JSON";
+  cx-fx:invocationIdProperty "header.notificationID,content.requestRefId";
+  cx-fx:callbackProperty "header.respondAssetId";
+  cx-fx:input cx-behaviour:notification;
+  cx-fx:input cx-behaviour:sender;
+  cx-fx:input cx-behaviour:senderConnector;
+  cx-fx:input cx-behaviour:recipient;
+  cx-fx:input cx-behaviour:recipientConnector;
+  cx-fx:input cx-behaviour:recipient;
+  cx-fx:input cx-behaviour:recipientConnector;
+  cx-fx:input cx-behaviour:severity;
+  cx-fx:input cx-behaviour:status;
+  cx-fx:input cx-behaviour:targetDate;
+  cx-fx:input cx-behaviour:timeStamp;
+  cx-fx:input cx-behaviour:classification;
+  cx-fx:input cx-behaviour:component;
+  cx-fx:input cx-behaviour:observationType;
+  cx-fx:input cx-behaviour:statusDate;
+  cx-fx:input cx-behaviour:statusOperatingHours;
+  cx-fx:input cx-behaviour:statusMileage;
+  cx-fx:input cx-behaviour:observationType;
+  cx-fx:input cx-behaviour:metadata;
+  cx-fx:input cx-behaviour:countingMethod;
+  cx-fx:input cx-behaviour:countingValue;
+  cx-fx:input cx-behaviour:countingUnit;
+  cx-fx:input cx-behaviour:headerChannels;
+  cx-fx:input cx-behaviour:bodyClasses;
+  cx-fx:input cx-behaviour:bodyCountsList;
+  cx-fx:result cx-behaviour:response.
+
+cx-behaviour:notification rdf:type cx-fx:Argument;
+  dcterms:description "A default notification output template."@en ;
+  dcterms:title "Notification Template";
+  cx-fx:argumentName ".";
+  cx-fx:dataType json:Object;
+  cx-fx:priority "-1"^^xsd:integer;
+  #cx-fx:default "{ \"content\": { \"endurancePredictorInputs\": [ { } ]}}"^^json:Object.
+  cx-fx:default "{ \"content\": { \"endurancePredictorInputs\": [ ]}}"^^json:Object.
+
+cx-behaviour:sender rdf:type cx-fx:Argument;
+  dcterms:description "Sender of the notification as a BPN."@en ;
+  dcterms:title "Notification Sender";
+  cx-fx:argumentName "header.senderBPN";
+  cx-fx:default "anonymous".
+
+cx-behaviour:senderConnector rdf:type cx-fx:Argument;
+  dcterms:description "Sender Address of the notification as a URL."@en ;
+  dcterms:title "Notification Sender Address";
+  cx-fx:argumentName "header.senderAddress";
+  cx-fx:default "unknown".
+
+cx-behaviour:recipient rdf:type cx-fx:Argument;
+  dcterms:description "Recipient of the notification as a BPN."@en ;
+  dcterms:title "Notification Recipient";
+  cx-fx:argumentName "header.recipientBPN";
+  cx-fx:default "anonymous".
+
+cx-behaviour:recipientConnector rdf:type cx-fx:Argument;
+  dcterms:description "Recipient Address of the notification as a URL."@en ;
+  dcterms:title "Notification Recipient Address";
+  cx-fx:argumentName "header.recipientAddress";
+  cx-fx:default "unknown".
+
+cx-behaviour:severity rdf:type cx-fx:Argument;
+  dcterms:description "Severity of the notification."@en ;
+  dcterms:title "Notification Severity";
+  cx-fx:argumentName "header.severity";
+  cx-fx:dataType xsd:string;
+  cx-fx:default "MINOR".
+
+cx-behaviour:status rdf:type cx-fx:Argument;
+  dcterms:description "Status of the notification."@en ;
+  dcterms:title "Notification Status";
+  cx-fx:argumentName "header.status";
+  cx-fx:dataType xsd:string;
+  cx-fx:default "SENT".
+
+cx-behaviour:targetDate rdf:type cx-fx:Argument;
+  dcterms:description "Target Date of the notification."@en ;
+  dcterms:title "Notification Target Date";
+  cx-fx:dataType xsd:dateTime;
+  cx-fx:argumentName "header.targetDate".
+
+cx-behaviour:timeStamp rdf:type cx-fx:Argument;
+  dcterms:description "Timestamp of the notification."@en ;
+  dcterms:title "Notification Timestamp";
+  cx-fx:dataType xsd:dateTime;
+  cx-fx:argumentName "header.timeStamp".
+
+cx-behaviour:classification rdf:type cx-fx:Argument;
+  dcterms:description "Classification of the notification."@en ;
+  dcterms:title "Notification Classification";
+  cx-fx:argumentName "header.classification";
+  cx-fx:dataType xsd:string;
+  cx-fx:default "RemainingUsefulLifePredictor".
+
+cx-behaviour:component rdf:type cx-fx:Argument;
+  dcterms:description "Component of the Predicition."@en ;
+  dcterms:title "Predicted Component";
+  cx-fx:formsBatchGroup "true"^^xsd:boolean;
+  cx-fx:argumentName "content.endurancePredictorInputs.0.componentId,content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.targetComponentId".
+
+cx-behaviour:observationType rdf:type cx-fx:Argument;
+  dcterms:description "The type of observation made."@en ;
+  dcterms:title "Observation Type";
+  cx-fx:argumentName "content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.metadata.componentDescription";
+  cx-fx:dataType xsd:string.
+
+cx-behaviour:metadata rdf:type cx-fx:Argument;
+  dcterms:description "Metadata of the Loadspectrum."@en ;
+  dcterms:title "Loadspectrum Metadata";
+  cx-fx:argumentName "content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}";
+  cx-fx:dataType json:Object;
+  cx-fx:priority "0"^^xsd:integer;
+  cx-fx:default "{ \"metadata\":{ \"projectDescription\": \"pnr_76543\", \"routeDescription\": \"logged\" }, \"bammId\": \"urn:bamm:io.openmanufacturing.digitaltwin:1.0.0#ClassifiedLoadSpectrum\" }"^^json:Object.
+
+cx-behaviour:statusDate rdf:type cx-fx:Argument;
+  dcterms:description "Time of Recording."@en ;
+  dcterms:title "Loadspectrum Recording Time";
+  cx-fx:dataType xsd:dateTime;
+  cx-fx:argumentName "content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.metadata.status.date".
+
+cx-behaviour:statusOperatingHours rdf:type cx-fx:Argument;
+  dcterms:description "Operating Hours of Target Component at Time of Recording."@en ;
+  dcterms:title "Loadspectrum Operating Hours";
+  cx-fx:dataType xsd:float;
+  cx-fx:argumentName "content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.metadata.status.operatingHours".
+
+cx-behaviour:statusMileage rdf:type cx-fx:Argument;
+  dcterms:description "Mileage of Component at Time of Recording."@en ;
+  dcterms:title "Loadspectrum Mileage";
+  cx-fx:dataType xsd:int;
+  cx-fx:argumentName "content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.metadata.status.mileage".
+
+cx-behaviour:countingUnit rdf:type cx-fx:Argument;
+  dcterms:description "Counting Unit of Load Spectrum."@en ;
+  dcterms:title "Loadspectrum Counting Unit";
+  cx-fx:dataType xsd:string;
+  cx-fx:argumentName "content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.header.countingUnit".
+
+cx-behaviour:countingValue rdf:type cx-fx:Argument;
+  dcterms:description "Counting Value Name of Load Spectrum."@en ;
+  dcterms:title "Loadspectrum Counting Value";
+  cx-fx:dataType xsd:string;
+  cx-fx:argumentName "content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.header.countingValue,content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.body.counts.countsName".
+
+cx-behaviour:countingMethod rdf:type cx-fx:Argument;
+  dcterms:description "Counting Method of Load Spectrum."@en ;
+  dcterms:title "Loadspectrum Counting Method";
+  cx-fx:dataType xsd:string;
+  cx-fx:argumentName "content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.header.countingMethod".
+
+cx-behaviour:headerChannels rdf:type cx-fx:Argument;
+  dcterms:description "Channels of Load Spectrum."@en ;
+  dcterms:title "Loadspectrum Channels";
+  cx-fx:dataType json:Object;
+  cx-fx:argumentName "content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.header.channels".
+
+cx-behaviour:bodyClasses rdf:type cx-fx:Argument;
+  dcterms:description "Classes of Load Spectrum."@en ;
+  dcterms:title "Loadspectrum Classes";
+  cx-fx:dataType json:Object;
+  cx-fx:argumentName "content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.body.classes".
+
+cx-behaviour:bodyCountsList rdf:type cx-fx:Argument;
+  dcterms:description "Counts List of Load Spectrum."@en ;
+  dcterms:title "Loadspectrum Counts List";
+  cx-fx:dataType json:Object;
+  cx-fx:argumentName "content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.body.counts.countsList".
+
+cx-behaviour:response rdf:type cx-fx:Result;
+  dcterms:description "The asynchronous notification response."@en ;
+  dcterms:title "Asynchronous notification response." ;
+  cx-fx:callbackProperty "header.referencedNotificationID";
+  cx-fx:outputProperty "content.endurancePredictorOutputs";
+  cx-fx:output cx-behaviour:remainingOperatingHours;
+  cx-fx:output cx-behaviour:remainingRunningDistance.
+
+cx-behaviour:remainingOperatingHours rdf:type cx-fx:ReturnValue;
+  dcterms:description "Predicted Operating Hours of Remaining Useful Life Response"@en ;
+  dcterms:title "Remaining Useful Life Operating Hours" ;
+  cx-fx:valuePath "0.remainingUsefulLife.remainingOperatingHours";
+  cx-fx:dataType xsd:float.
+
+cx-behaviour:remainingRunningDistance rdf:type cx-fx:ReturnValue;
+  dcterms:description "Predicted Distance of Remaining Useful Life Response"@en ;
+  dcterms:title "Remaining Useful Life Distance" ;
+  cx-fx:valuePath "0.remainingUsefulLife.remainingRunningDistance";
+  cx-fx:dataType xsd:int.
 ```
 
 ## Graph asset for the service binding
@@ -836,9 +1052,7 @@ To enable the knowledge agent's matchmaking agent to find the service binding, a
 
 ```
 "<https://w3id.org/catenax/ontology/common>,<https://w3id.org/catenax/ontology/core>,<https://w3id.org/catenax/ontology/function>,<https://w3id.org/catenax/ontology/behaviour>",
-
             "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SPARQL",
-
             "sh:shapesGraph": "@prefix cx-common: <https://w3id.org/catenax/ontology/common#>. \n@prefix : <GraphAsset?supplier=BehaviourTwinRUL#> .\n@prefix cx-prognosis: <https://w3id.org/catenax/ontology/behaviour#> .\n@prefix cx-fx: <https://w3id.org/catenax/ontology/function#> .\n@prefix owl: <http://www.w3.org/2002/07/owl#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n\n:Tier1LifetimePrognosis rdf:type sh:NodeShape ;\n  sh:targetClass cx-prognosis:Function ;\n  sh:property [\n        sh:path cx-prognosis:provisionedBy ;\n        sh:hasValue <urn:bpn:legal:BPNL000000000000> ]."
 ```
 For more information see the Knowledge Agent KIT.

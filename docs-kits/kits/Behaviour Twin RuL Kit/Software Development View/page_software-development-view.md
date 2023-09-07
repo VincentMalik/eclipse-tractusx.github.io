@@ -16,7 +16,7 @@ Development View of the Kit.
 
 There will be changes in the following releases.
 We plan to provide a more general RuL skill and more generalized interfaces for service
-input data. With these improvements, it will be much much easier and more flexible for you to
+input data. With these improvements, it will be much easier and more flexible for you to
 participate in the RuL use case.
 
 # Overview
@@ -77,11 +77,11 @@ For more information, see the operation view.
 | remoting agent                            | x |   |   |   |   |
 
 ## Knowledge graph basics
-Knowledge graphs are buildup of semantic triplets (subject --predicate-> object), where subject and object are nodes, the predicate is an unidirectional edge. All nodes are object instances, and the edges between them are their relations. For more information, see [W3C Resource Description Framework (RDF)](https://www.w3.org/RDF/).  
+Knowledge graphs are buildup of semantic triplets (subject --predicate-> object), where subject and object are nodes, the predicate is a unidirectional edge. All nodes are object instances, and the edges between them are their relations. For more information, see [W3C Resource Description Framework (RDF)](https://www.w3.org/RDF/).  
 Object types and relations are formally defined within ontologies.
 
 ## Basic Architecture
-For a detailled view of the architecture with the konwledge agent see the Knowledge Agent KIT.
+For a detailed view of the architecture with the knowledge agent see the Knowledge Agent KIT.
 Here you can see an overview over the used components and elements that must be developed:
 
 ![Remaining Useful Life architecture overview](../assets/rul_architecture_overview.png)
@@ -511,12 +511,12 @@ In the example above, there are the following triplets:
 - *<{vehicle_id}> rdf:type cx-vehicle:Vehicle*: All objects in the database table/view "vehicles" are mapped to the type cx-vehicle:Vehicle.
 - *<{vehicle_id}> cx-vehicle:vehicleIdentificationNumber {van}^^xsd:string*: Relation between a vehicle and the related VAN. The type of VAN must be string.
 - *<{vehicle_id}> cx-vehicle:worldManufaturerId bpnl:{oem_bpnl}*: Relation between a vehicle and its manufacturer's BPN.
-- *<{vehicle_id}> cx-vehicle:productionDate {production_date}^^xsd:date*: Relation between a vehicle and it's date of production. The tyoe of production_date must be date.
+- *<{vehicle_id}> cx-vehicle:productionDate {production_date}^^xsd:date*: Relation between a vehicle and it's date of production. The type of production_date must be date.
 
 Complex types like the load spectra are composed of many triplets. If you have stored those load spectra as SAMM specified JSON strings, you may decompose them with specific JSON functions of your database system.
 
 ### Full example
-The following example shows mappings at a OEM that can be used to determine the vehicle object by a given VIN, find the related gearbox and the associated gearbox load spectra:
+The following example shows mappings at an OEM that can be used to determine the vehicle object by a given VIN, find the related gearbox and the associated gearbox load spectra:
 ```obda
   [PrefixDeclaration]
   cx-common:          https://w3id.org/catenax/ontology/common#
@@ -571,7 +571,7 @@ The following example shows mappings at a OEM that can be used to determine the 
 ```
 
 ## Graph asset for the data binding
-To enable the knowledge agent's matchmaking agent to find the data bindings, a graph asset has to be regeisterd at the EDC. This asset must have a property "rdfs:isDefinedBy" that defines the shape of the provided graph.
+To enable the knowledge agent's matchmaking agent to find the data bindings, a graph asset has to be registered at the EDC. This asset must have a property "rdfs:isDefinedBy" that defines the shape of the provided graph.
 
 ```
 "<https://w3id.org/catenax/usecase/behaviourtwin>,<https://w3id.org/catenax/ontology/core>,<https://w3id.org/catenax/ontology/vehicle>,<https://w3id.org/catenax/ontology/reliability>",
@@ -595,7 +595,7 @@ For RDF4J, a configuration must be provided that formally describes the service 
 The configuration is written in Turtle (Terse RDF Triple Language) and has the extension **.ttl**. For more information, see the Knowledge Agent KIT.  
 
 ### RDF4J repository
-The RDF4J repository is the basic configuration that referes to the service object and defines the callback endpoint for an asynchronous response of this service.
+The RDF4J repository is the basic configuration that refers to the service object and defines the callback endpoint for an asynchronous response of this service.
 
 ```ttl
 ################################################################
@@ -717,7 +717,7 @@ cx-behaviour:recipient rdf:type cx-fx:Argument;
 
 #### cx-fx:Result
 The result of the service is also a JSON string. It consists of properties and output values.  
-Tha mapping must provide all data that are defined in the ontology.  
+The mapping must provide all data that are defined in the ontology.  
 The properties are of predefined types and are mapped directly (without further descriptions and attributes).  
 The output values are specified each separate.
 
@@ -1048,7 +1048,7 @@ cx-behaviour:remainingRunningDistance rdf:type cx-fx:ReturnValue;
 ```
 
 ## Graph asset for the service binding
-To enable the knowledge agent's matchmaking agent to find the service binding, a graph asset has to be regeisterd at the EDC. This asset must have a property "rdfs:isDefinedBy" that defines the shape of the provided graph.
+To enable the knowledge agent's matchmaking agent to find the service binding, a graph asset has to be registered at the EDC. This asset must have a property "rdfs:isDefinedBy" that defines the shape of the provided graph.
 
 ```
 "<https://w3id.org/catenax/ontology/common>,<https://w3id.org/catenax/ontology/core>,<https://w3id.org/catenax/ontology/function>,<https://w3id.org/catenax/ontology/behaviour>",

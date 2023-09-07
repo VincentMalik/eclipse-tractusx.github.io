@@ -12,11 +12,11 @@ sidebar_position: 1
 All notable changes to this Kit will be documented in this file.
 
 
-## [0.1.0] - 2023-08-18
+## [0.1.0] - 2023-09-07
 
 ### Added
 
-- Initial version of the Kit including adoption, operation and development view.
+- Initial version of the KIT including adoption, operation and development view.
 
 ### Changed
 
